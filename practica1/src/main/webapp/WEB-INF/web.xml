@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+https://jakarta.ee/xml/ns/jakartaee/web-app_2_5.xsd" version="2.5">
+  <display-name>visita25</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+	<init-param>
+	<param-name>text</param-name>
+	<param-value>¡Felicitaciones @! eres el visitante número # de nuestro sitio y has sido
+seleccionado para el gran premio TTPS - Cursada APROBADA</param-value>
+	</init-param>
+    <description></description>
+    <display-name>Premio</display-name>
+    <servlet-name>Premio</servlet-name>
+    <servlet-class>servlet.Premio</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Premio</servlet-name>
+    <url-pattern>/Premio</url-pattern>
+  </servlet-mapping>
+</web-app>
