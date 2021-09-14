@@ -1,0 +1,10 @@
+0:0:0:0:0:0:0:1 - null [2021-09-14] GET/ejercicio3/HTTP/1.1 Mozilla/5.0 (Windows NT 6.2; Win64; x64; Trident/7.0; rv:11.0) like Gecko
+0:0:0:0:0:0:0:1 - null [2021-09-14] GET/ejercicio3/HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36
+0:0:0:0:0:0:0:1 - null [2021-09-14] GET/ejercicio3/HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36
+0:0:0:0:0:0:0:1 - null [2021-09-14] GET/ejercicio3/HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36
+0:0:0:0:0:0:0:1 - null [2021-09-14] GET/ejercicio3/HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36
+0:0:0:0:0:0:0:1 - null [2021-09-14] GET/ejercicio3/HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36
+0:0:0:0:0:0:0:1 - null [2021-09-14] GET/ejercicio3/HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36
+0:0:0:0:0:0:0:1 - null [2021-09-14] GET/ejercicio3/HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36
+0:0:0:0:0:0:0:1 - null [2021-09-14] GET/ejercicio3/HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36
+0:0:0:0:0:0:0:1 - null [2021-09-14] GET/ejercicio3/HTTP/1.1 Mozilla/5.0 (Windows NT 6.2; Win64; x64; Trident/7.0; rv:11.0) like Gecko
