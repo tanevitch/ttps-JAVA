@@ -3,6 +3,13 @@
     border-color: #d52136 ;
     background-color: #d52136;
     color: white !important;
+    padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.btn-nav{
+  padding-left: 15px !important;
+  padding-right: 15px !important;
 }
 
 .btn-outline-primary{
@@ -15,6 +22,7 @@
     background-color: #d52137 ;
     border-color: #d52137 ;
     color: white !important;
+    box-shadow: none  !important;
 }
 
 .bg-light{
@@ -53,6 +61,13 @@ li{
     background-color: #353b43    ;
     border-color: #353b43    ;
     color: white !important;
+}
+
+.btn-primary:focus{
+  background-color: #d52137    ;
+  border-color: #d52137    ;
+  color: white !important;
+  box-shadow: none  !important;
 }
 
 #index_banner1 {
