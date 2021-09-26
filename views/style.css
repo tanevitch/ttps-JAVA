@@ -1,4 +1,9 @@
 
+.btn-nav:hover{
+    border-color: #d52136 ;
+    background-color: #d52136;
+    color: white !important;
+}
 
 .btn-outline-primary{
     border-color: #d52137 ;
@@ -15,6 +20,7 @@
 .bg-light{
     background-color: #eee3df !important ;
 }
+
 
 .bg-dark{
     background-color: #353b43 !important ;
@@ -92,4 +98,17 @@ li{
 
   .card:hover {
     transform: scale(1.1);
+  }
+
+  .accordion-button:not(.collapsed) {
+    font-weight: bold;
+    color: #d52137;
+    background-color: #eee3df;
+  }
+
+  .accordion-button:focus {
+    z-index: 3;
+    border-color: #ccbcc4;
+    outline: 0;
+    box-shadow: 0px 0px 5px 1px rgb(204, 188, 196) !important;
   }
