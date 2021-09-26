@@ -1,4 +1,5 @@
 
+
 .btn-outline-primary{
     border-color: #d52137 ;
     background-color: #d5213657;
@@ -83,4 +84,12 @@ li{
   .direccion{
     font-weight : 100;
     font-size: x-large !important;
+  }
+
+  .rojo{
+    background-color: #d52137;
+  }
+
+  .card:hover {
+    transform: scale(1.1);
   }
