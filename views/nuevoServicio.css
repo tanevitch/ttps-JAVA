@@ -14,7 +14,7 @@
 
 input,
 textarea,
-button {
+#boton {
     padding: 8px 15px;
     border-radius: 5px !important;
     margin: 5px 0px;
@@ -100,10 +100,7 @@ button:focus {
     justify-content: center;
   }
 
-li{
-    padding: 10px;
-    
-}
+
 
 .btn-primary{
     border-color: #d52137;
@@ -189,6 +186,10 @@ li{
     justify-content: center;
 }
 
+li{
+  padding: 10px;
+  
+}
 .descrip {
     margin-top: 20px;
     display: flex;

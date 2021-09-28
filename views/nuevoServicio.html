@@ -22,30 +22,30 @@
                 <!-- <i class='bx bx-world bx-sm text-dark'></i> -->
                 <span class="text-dark h4">Titulo </span><span class="text-primary  h4">pagina</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            <button id="boton" class="navbar-toggler" type="button id="boton"" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button id="boton">
             <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
-                <ul class="navbar-nav align-items-center">
-                    <li class="nav-item ">
-                        <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Cargar servicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis reservas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis puntuaciones</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav align-items-center lista-flex">
-                    
-                    <li class="nav-item "><button type="button" class="btn btn-primary">Cerrar Sesión</button></li>
-                </ul>
-            </div>
+              <ul class="navbar-nav align-items-center">
+                  <li class="nav-item ">
+                      <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Cargar servicio</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis servicios</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis reservas</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis puntuaciones</a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav align-items-center lista-flex">
+                  
+                  <li class="nav-item "><button type="button" class="btn btn-primary">Cerrar Sesión</button id="boton"></li>
+              </ul>
+          </div>
         </div>
     </nav>
 
@@ -56,7 +56,7 @@
                     <h3 class="nuevoServ">Nuevo servicio</h3>
                         <form class="form-card" onsubmit="event.preventDefault()">
                             <div class="row justify-content-between text-left">
-                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nombre del servicio<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="" onblur="validate(1)"> </div>
+                                <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nombre del servicio<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="" required> </div>
                                 <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Tipo de servicio<span class="text-danger"> *</span></label> <select class="form-select" aria-label="Default select example">
                                     <option selected>Catering</option></select> 
                                 </div>
@@ -65,26 +65,26 @@
 
                             
                          
-                                <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3 descrip">Descripción<span class="text-danger"> *</span></label> <textarea id="ans" name="ans"  placeholder="Ingrese detalles de su servicio que considere importantes" onblur="validate(6)"></textarea></div>
+                                <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3 descrip">Descripción<span class="text-danger"> *</span></label> <textarea id="ans" name="ans"  placeholder="Ingrese detalles de su servicio que considere importantes" required></textarea></div>
                                 <div class="botonOk">
-                                    <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary but">Subir imágenes</button> </div>
+                                    <div class="form-group col-sm-6"> <button id="boton" type="submit" class="btn-block btn-primary but">Subir imágenes</button id="boton"> </div>
                                 </div>
                         
                             <div>
                                 <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label contacto">Contacto</label>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Numero telefónico<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="" onblur="validate(4)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Página web<span class="text-danger"></span></label> <input type="text" id="email" name="email" placeholder="" onblur="validate(3)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Facebook<span class="text-danger"></span></label> <input type="text" id="email" name="email" placeholder="Ingrese el nombre de su cuenta" onblur="validate(3)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Instagram<span class="text-danger"></span></label> <input type="text" id="email" name="email" placeholder="Ingrese el nombre de su cuenta" onblur="validate(3)"> </div>    
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Twitter<span class="text-danger"></span></label> <input type="text" id="email" name="email" placeholder="Ingrese el nombre de su cuenta" onblur="validate(3)"> </div>                          
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Numero telefónico<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="" required> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Página web<span class="text-danger"></span></label> <input type="text" id="email" name="email" placeholder="" required> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Facebook<span class="text-danger"></span></label> <input type="text" id="email" name="email" placeholder="Ingrese el nombre de su cuenta" required> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Instagram<span class="text-danger"></span></label> <input type="text" id="email" name="email" placeholder="Ingrese el nombre de su cuenta" required> </div>    
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Twitter<span class="text-danger"></span></label> <input type="text" id="email" name="email" placeholder="Ingrese el nombre de su cuenta" required> </div>                          
                                     </div>
                                 </div>
 
                             </div>
                             <div class="botonOk">
-                                <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary but ">Confirmar</button> </div>
-                                <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary but">Cancelar</button> </div>
+                                <div class="form-group col-sm-6"> <button id="boton" type="submit" class="btn-block btn-primary but ">Confirmar</button id="boton"> </div>
+                                <div class="form-group col-sm-6"> <button id="boton" type="submit" class="btn-block btn-primary but">Cancelar</button id="boton"> </div>
                             </div>
 
                         </form>
