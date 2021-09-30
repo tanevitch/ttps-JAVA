@@ -1,5 +1,4 @@
 
-
 .btn-nav:hover{
     border-color: #d52136 ;
     background-color: #d52136;
@@ -45,7 +44,7 @@
     flex-wrap: wrap !important;
     align-items: center;
     justify-content: center;
-}
+  }
 
 li{
     padding: 10px;
@@ -128,3 +127,14 @@ li{
     outline: 0;
     box-shadow: 0px 0px 5px 1px rgb(204, 188, 196) !important;
   }
+
+
+/* --- misServicios --- */
+.row.row-cols-1.row-cols-md-5.g-4{
+  margin-top:1%; margin-bottom: 3%;
+
+}
+.row-cols-md-5.g-4 .col{
+  margin-top: 3%;
+  margin-left: 4%;
+}
