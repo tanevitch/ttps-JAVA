@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
               <ul class="navbar-nav align-items-center">
                   <li class="nav-item ">
-                      <a class="nav-link btn-nav rounded-pill " aria-current="page" onclick="window.location.href='nuevoServicio.html'" href="#">Cargar servicio</a>
+                      <a class="nav-link btn-nav rounded-pill " aria-current="page" onclick="window.location.href='nuevoServicio.html'" href="#">Publicar servicio</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis servicios</a>
@@ -39,7 +39,7 @@
                       <a class="nav-link btn-nav rounded-pill " aria-current="page" onclick="window.location.href='verMisReservas.html'" href="#">Mis reservas</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis puntuaciones</a>
+                      <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis prestaciones</a>
                   </li>
               </ul>
               <ul class="navbar-nav align-items-center lista-flex">
@@ -51,38 +51,36 @@
     </nav>
 
 
+    <section class="container py-5">
+    <div class="row">
 
-    <div class="row row-cols-1 row-cols-md-5 g-4">
-
-        <div class="col ">
-          <div class="card h-100">
-            <div class="card-body rojo">
-              <h5 class="card-title text-center">Servicio 1</h5>
-            </div>
-            <div class="card-body">
-                <h6 class="card-title ">Tipo: Catering</h6>
-
-                <p class="card-text ">Esta es la descripcion de mi servicio</p>
-              </div>
-            <div class="card-footer text-center">
-              <a href="#" class="btn btn-light border border-3">Ver pedidos</a>
-              <button type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-              <button type="button" class="btn btn-danger" id="closeService"><i class="fa fa-times"></i></button>   
-
-              
-            </div>
+      <div class="col-lg-3 py-2">
+        <div class="card h-100">
+          <div class="card-header text-white rojo ">
+            <h5 class="card-title text-center">Servicio 1</h5>
           </div>
-        </div>
+          <div class="card-body">
+            <h6 class="card-title ">Tipo: Catering</h6>
 
-        <div class="col">
+            <p class="card-text ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+           </div>
+          <div class="card-footer text-center">
+            <a href="#" class="btn btn-light border border-3">Ver solicitudes</a>
+            <button type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>            </div>
+        </div>
+      </div>
+
+        <div class="col-lg-3 py-2">
             <div class="card h-100">
-              <div class="card-body rojo ">
+              <div class="card-header text-white rojo ">
                 <h5 class="card-title text-center">Servicio 2</h5>
               </div>
               <div class="card-body">
                 <h6 class="card-title ">Tipo: Catering</h6>
 
-                <p class="card-text ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text ">
+                  This content is a little bit longer.</p>
                </div>
               <div class="card-footer text-center">
                 <a href="#" class="btn btn-light border border-3">Ver pedidos</a>
@@ -91,9 +89,9 @@
             </div>
           </div>
 
-          <div class="col">
+          <div class="col-lg-3 py-2">
             <div class="card h-100">
-              <div class="card-body rojo ">
+              <div class="card-header text-white rojo ">
                 <h5 class="card-title text-center">Servicio 3</h5>
               </div>
               <div class="card-body">
@@ -108,9 +106,9 @@
             </div>
           </div>
 
-          <div class="col">
+          <div class="col-lg-3 py-2">
             <div class="card h-100">
-              <div class="card-body rojo ">
+              <div class="card-header text-white rojo ">
                 <h5 class="card-title text-center">Servicio 4</h5>
               </div>
               <div class="card-body">
@@ -125,9 +123,9 @@
             </div>
           </div>
 
-          <div class="col">
+          <div class="col-lg-3 py-2">
             <div class="card h-100">
-              <div class="card-body rojo ">
+              <div class="card-header text-white rojo ">
                 <h5 class="card-title text-center">Servicio 5</h5>
               </div>
               <div class="card-body">
@@ -142,9 +140,9 @@
             </div>
           </div>
   
-          <div class="col">
+          <div class="col-lg-3 py-2">
               <div class="card h-100">
-                <div class="card-body rojo ">
+                <div class="card-header text-white rojo ">
 
                   <h5 class="card-title text-center text-white">Servicio 6</h5>
                 </div>
@@ -160,10 +158,10 @@
               </div>
             </div>
   
-            <div class="col">
+            <div class="col-lg-3 py-2">
               <div class="card h-100">
-                <div class="card-body bg-light ">
-                  <h5 class="card-title text-center">Servicio 7</h5>
+                <div class="card-header text-white rojo ">
+                  <h5 class="card-title text-center ">Servicio 7</h5>
                 </div>
                 <div class="card-body">
                     <h6 class="card-title ">Tipo: Catering</h6>
@@ -182,7 +180,7 @@
             
     </div>
 
-
+  </section>
     <footer>
         <div class="w-100 bg-dark">
             <div class="container">

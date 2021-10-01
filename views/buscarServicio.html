@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item ">
-                        <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Cargar servicio</a>
+                        <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Publicar servicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis servicios</a>
@@ -38,7 +38,7 @@
                         <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis reservas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis puntuaciones</a>
+                        <a class="nav-link btn-nav rounded-pill " aria-current="page" href="#">Mis prestaciones</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav align-items-center lista-flex">
@@ -51,12 +51,13 @@
     <section>
         <div class="container">
             <div class="row my-5 justify-content-center d-flex">
-                <form class="col-sm-4 d-flex">
+                <form class="col-lg-4 d-flex">
                     <input class="form-control me-2" type="search" placeholder="Buscar por nombre, categoría..." aria-label="Search">
                     <button class="btn btn-primary" type="submit">Buscar</button>
                 </form>
-                <div class="col-sm-4 d-flex">
+                <div class="col-lg-4 d-flex">
                     <select class="form-control " id="exampleFormControlSelect1">
+                        <option selected>Filtrar por categoría..</option>
                         <option>Show en vivo</option>
                         <option>Food Truck</option>
                         <option>Catering</option>
@@ -65,10 +66,18 @@
                       </select>
                       <button class="btn btn-primary" type="submit">Filtrar</button>
                 </div>
-                
+                <div class="col-lg-4 d-flex">
+                    <button class="btn btn-primary" type="submit">
+                        Mejor puntuados
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                            <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
+                        </svg>
+                    </button>
+                    
+                </div>
             </div>
             <div class="row my-5 justify-content-center">
-                <div class="col-sm-4 py-2">
+                <div class="col-lg-4 py-2">
                     <div class="card  h-100 mb-2 " style="max-width: 100%;">
                         <div class="card-header rojo">
                         </div>
@@ -82,11 +91,15 @@
                             <p>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nesciunt dicta necessitatibus explicabo fugiat ullam exercitationem quidem eaque minima magni
                             </p>
+                            <p class="fst-italic text-muted small">
+                                Puntuación: 4/5
+                            </p>
+
                             <button type="button" class="btn btn-primary">Reservar</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 py-2">
+                <div class="col-lg-4 py-2">
                     <div class="card  h-100 mb-2 " style="max-width: 100%;">
                         <div class="card-header rojo">
 
@@ -101,11 +114,15 @@
                             <p>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nesciunt dicta necessitatibus explicabo fugiat ullam exercitationem quidem eaque minima magni
                             </p>
+                            <p class="fst-italic text-muted small">
+                                Puntuación: 4/5
+                            </p>
+
                             <button type="button" class="btn btn-primary">Reservar</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 py-2">
+                <div class="col-lg-4 py-2">
                     <div class="card  h-100 mb-2 " style="max-width: 100%;">
                         <div class="card-header rojo">
 
@@ -119,6 +136,9 @@
                             </p>
                             <p>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nesciunt dicta necessitatibus explicabo fugiat ullam exercitationem quidem eaque minima magni
+                            </p>
+                            <p class="fst-italic text-muted small">
+                                Puntuación: 4/5
                             </p>
                             <button type="button" class="btn btn-primary">Reservar</button>
                         </div>
@@ -127,7 +147,7 @@
                 
             </div>
             <div class="row my-5 justify-content-center ">
-                <div class="col-sm-4 py-2">
+                <div class="col-lg-4 py-2">
                     <div class="card  h-100 mb-2 " style="max-width: 100%;">
                         <div class="card-header rojo">
 
@@ -141,12 +161,15 @@
                             </p>
                             <p>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nesciunt dicta necessitatibus explicabo fugiat ullam exercitationem quidem eaque minima magni
+                            </p>
+                            <p class="fst-italic text-muted small">
+                                Puntuación: 4/5
                             </p>
                             <button type="button" class="btn btn-primary">Reservar</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 py-2">
+                <div class="col-lg-4 py-2">
                     <div class="card  h-100 mb-2 " style="max-width: 100%;">
                         <div class="card-header rojo">
 
@@ -160,12 +183,15 @@
                             </p>
                             <p>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nesciunt dicta necessitatibus explicabo fugiat ullam exercitationem quidem eaque minima magni
+                            </p>
+                            <p class="fst-italic text-muted small">
+                                Puntuación: 4/5
                             </p>
                             <button type="button" class="btn btn-primary">Reservar</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 py-2">
+                <div class="col-lg-4 py-2">
                     <div class="card  h-100 mb-2 " style="max-width: 100%;">
                         <div class="card-header rojo">
 
@@ -179,6 +205,9 @@
                             </p>
                             <p>
                                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda nesciunt dicta necessitatibus explicabo fugiat ullam exercitationem quidem eaque minima magni
+                            </p>
+                            <p class="fst-italic text-muted small">
+                                Puntuación: 4/5
                             </p>
                             <button type="button" class="btn btn-primary">Reservar</button>
                         </div>

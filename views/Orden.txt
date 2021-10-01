@@ -3,11 +3,12 @@
     1.2) Puede ir a vista registrarse
 2) iniciarSesion up/registrarse - Acceso a Home (sin autenticar). Logueado, va dashboard
 3) El dashboard tiene todas las operaciones:
-    4) cargar servicio -> va a vista nuevoServicio
-    5) mis servicios -> va a vista ___
+    4) Publicar servicio -> va a vista nuevoServicio
+    5) mis servicios -> va a vista misServicios
         5.1) puede ir a vista ___ (editar) 
-        5.2) puede ir a vista gestionarReserva (iría con el ID de ese servicio para levantar las reservas que tiene)
+        5.2) puede ir a vista gestionarReservas (iría con el ID de ese servicio para levantar las solicitudes que tiene)
     6) mis reservas -> va a vista verMisReservas
-    7) mis puntuaciones -> va a vista ___ (ver puntuaciones)
+    7) Mis prestaciones -> va a vista misPrestaciones
+        7.1) puede confirmar la prestación
     8) buscar servicio -> va a vista buscarServicio
-        8.1) puede ir a vista ___ (nueva reserva)
+        8.1) puede ir a vista reservarServicio
