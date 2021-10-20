@@ -7,10 +7,11 @@ import javax.persistence.*;
  
 @Entity
 @TableGenerator(name = "user")
+
 public class Usuario  {
 	@Id
-	@GeneratedValue
-	@Column(name="ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="user_ID")
 	private long id;
 	@Column(nullable=false)
 	private String nombre;
@@ -21,8 +22,13 @@ public class Usuario  {
 	@Column(nullable=false)
 	private String contraseña;
 	
-//	private List<Servicio> servicios = new ArrayList<Servicio>();
-//	private List<Evento> eventos = new ArrayList<Evento>();
+	@OneToMany(mappedBy="usuario",
+	        cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Servicio> servicios;
+	
+	@OneToMany(mappedBy="usuario",
+	        cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Evento> eventos;
 	
 	public Usuario(String nombre, String apellido, String mail, String contraseña) {
 		this.nombre = nombre;

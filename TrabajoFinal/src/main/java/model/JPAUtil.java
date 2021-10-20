@@ -1,6 +1,11 @@
 package model;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import DAO.UsuarioDAO;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
  
 public class JPAUtil {
@@ -11,7 +16,14 @@ public class JPAUtil {
  static EntityManagerFactory factory;
  
  public static void main(String args[]) {
-	 getEntityManagerFactory();
+			 Usuario m = new Usuario();
+			 m.setNombre("a");
+			 m.setApellido("b");
+			 m.setContraseña("1234");
+			 m.setMail("aaa");
+			 UsuarioDAO usuarioDAO = new UsuarioDAO();
+			 usuarioDAO.guardar(m);
+			 
  }
  
  public static EntityManagerFactory getEntityManagerFactory() {
@@ -23,7 +35,7 @@ public class JPAUtil {
  }
  
  // Definimos un método close para liberar el objeto Entity Manager.
- public void shutdown() {
+ public static void shutdown() {
   if (factory != null) {
    factory.close();
   }
