@@ -9,10 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
 @Entity
-@TableGenerator(name = "evento")
+@Table(name = "evento")
 
 public class Evento {
 	@Id

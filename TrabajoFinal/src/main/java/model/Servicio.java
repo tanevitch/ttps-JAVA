@@ -13,10 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
 @Entity
-@TableGenerator(name = "servicio")
+@Table(name = "servicio")
 public class Servicio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

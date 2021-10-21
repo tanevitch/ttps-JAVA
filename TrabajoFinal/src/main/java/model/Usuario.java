@@ -6,7 +6,7 @@ import javax.persistence.*;
 
  
 @Entity
-@TableGenerator(name = "user")
+@Table(name = "user")
 
 public class Usuario  {
 	@Id
@@ -17,10 +17,10 @@ public class Usuario  {
 	private String nombre;
 	@Column(nullable=false)
 	private String apellido; 
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String mail;
 	@Column(nullable=false)
-	private String contraseña;
+	private String contrasena;
 	
 	@OneToMany(mappedBy="usuario",
 	        cascade = CascadeType.ALL, orphanRemoval = true)
@@ -30,11 +30,11 @@ public class Usuario  {
 	        cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Evento> eventos;
 	
-	public Usuario(String nombre, String apellido, String mail, String contraseña) {
+	public Usuario(String nombre, String apellido, String mail, String contrasena) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.mail = mail;
-		this.contraseña = contraseña;
+		this.contrasena = contrasena;
 	}
 	
 	public Usuario() {
@@ -65,12 +65,12 @@ public class Usuario  {
 		this.mail = mail;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 	public long getId() {
