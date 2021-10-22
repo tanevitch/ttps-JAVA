@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
 
 @Entity
 @Table(name = "servicio")
@@ -43,10 +41,12 @@ public class Servicio {
 	@ManyToOne
     @JoinColumn(name="user_ID", nullable=false)
 	private Usuario usuario;
-	//private TipoServicio tipoServicio;
 	
+	
+//	private TipoServicio tipoServicio;
 //	
-//	public Servicio(String nombre, TipoServicio tipoServicio, String descripcion, String url, String whatsapp, String instagram, String twitter, List<BufferedImage> imagenes) {
+//	
+//	public Servicio(String nombre, TipoServicio tipoServicio, String descripcion, String url, String whatsapp, String instagram, String twitter) {
 //		this.nombre = nombre;
 //		this.tipoServicio= tipoServicio;
 //		this.descripcion = descripcion;
@@ -54,9 +54,6 @@ public class Servicio {
 //		this.whatsapp = whatsapp;
 //		this.instagram = instagram;
 //		this.twitter = twitter;
-//		for (BufferedImage image: imagenes) {
-//			imagenes.add(image);
-//		}
 //	}
 	
 	public Servicio() {

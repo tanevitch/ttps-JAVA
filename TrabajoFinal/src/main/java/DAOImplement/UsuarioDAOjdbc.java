@@ -5,41 +5,16 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import DAO.UsuarioDAO;
+import DAO.BaseDAO;
 import inicio.JPAUtil;
 import model.Servicio;
 import model.Usuario;
 
-public class UsuarioDAOjdbc implements UsuarioDAO{
-	EntityManager entity = JPAUtil.getEntityManagerFactory().createEntityManager();
+public class UsuarioDAOjdbc extends BaseDAOimpl<Usuario> implements BaseDAO<Usuario>{
 	
-	@Override
-	public List<Usuario> listar() {
-		List<Usuario> usuarios= entity.createQuery("from Usuario").getResultList();
-		return usuarios;
-	}
 
-	@Override
-	public void guardar(Usuario usuario) {
-	  entity.getTransaction().begin();
-	  entity.persist(usuario);
-	  entity.getTransaction().commit();
+		
 	
-	}
-
-	@Override
-	public void editar(Usuario usuario) {
-		entity.getTransaction().begin();
-		entity.merge(usuario);
-		entity.getTransaction().commit();
-	}
-
-	@Override
-	public void eliminar(Usuario usuario) {
-		entity.getTransaction().begin();
-		entity.remove(usuario);
-		entity.getTransaction().commit();	
-	}
 
 	
 

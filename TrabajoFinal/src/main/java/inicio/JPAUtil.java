@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import DAO.UsuarioDAO;
 import DAOImplement.UsuarioDAOjdbc;
 import model.Servicio;
 import model.Usuario;
@@ -17,15 +16,27 @@ public class JPAUtil {
 	 
 	 public static void main(String args[]) {
 		 UsuarioDAOjdbc usuarioDAO = new UsuarioDAOjdbc();
-//		 Usuario m = new Usuario();
-//		 m.setNombre("Juan");
-//		 m.setApellido("Perez");
-//		 m.setcontrasena("1234");
-//		 m.setMail("juan@gmail.com");
-//		 usuarioDAO.guardar(m);
+		 Usuario m = new Usuario();
+		 m.setNombre("Juan");
+		 m.setApellido("Perez");
+		 m.setContrasena("1234");
+		 m.setMail("juan2@gmail.com");
+		 
+		 // Agregarle el servicio al usuario y después llamar al guardar
+		 Servicio s = new Servicio();
+		 s.setNombre("nombre");
+		 s.setInstagram("a");
+		 s.setTwitter("a");
+		 s.setWhatsapp("a");
+		 s.setUrl("a");
+		 s.setDescripcion("Descripcion");
+		 s.setUsuario(m);
+		 m.agregarServicio(s);
+		 usuarioDAO.guardar(m);
+		 
 		 List<Usuario> usuarios= usuarioDAO.listar();
 		 usuarios.get(0).setNombre("Juan cambiado");
-		 usuarioDAO.editar(usuarios.get(0));
+		 usuarioDAO.editar(usuarios.get(0)); // hacerlo con find
 		 for (Usuario u: usuarios) {
 			 System.out.println(u.getMail());
 		 }

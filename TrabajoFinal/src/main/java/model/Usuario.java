@@ -21,13 +21,12 @@ public class Usuario  {
 	private String mail;
 	@Column(nullable=false)
 	private String contrasena;
+	//eliminado boolean
 	
-	@OneToMany(mappedBy="usuario",
-	        cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<Servicio> servicios;
+	@OneToMany(mappedBy="usuario", cascade = {CascadeType.PERSIST, CascadeType.MERGE}) 
+	private List<Servicio> servicios = new ArrayList<Servicio>();
 	
-	@OneToMany(mappedBy="usuario",
-	        cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="usuario")
 	private List<Evento> eventos;
 	
 	public Usuario(String nombre, String apellido, String mail, String contrasena) {
@@ -81,9 +80,9 @@ public class Usuario  {
 //		return servicios;
 //	}
 //	
-//	public void agregarServicio(Servicio servicio) {
-//		servicios.add(servicio);
-//	}
+	public void agregarServicio(Servicio servicio) {
+		servicios.add(servicio);
+	}
 //	
 //	public void eliminarServicio(Servicio servicio) {
 //		servicios.remove(servicio);
