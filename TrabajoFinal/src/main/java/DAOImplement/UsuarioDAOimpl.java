@@ -1,4 +1,4 @@
-package daoImplement;
+package DAOImplement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import dao.BaseDAO;
-import dao.UsuarioDAO;
+import DAO.BaseDAO;
+import DAO.UsuarioDAO;
 import inicio.EMFSingleton;
 import model.Servicio;
 import model.Usuario;

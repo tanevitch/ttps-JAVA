@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import daoImplement.UsuarioDAOimpl;
+import DAOImplement.UsuarioDAOimpl;
 import model.Servicio;
 import model.TipoServicio;
 import model.Usuario;
