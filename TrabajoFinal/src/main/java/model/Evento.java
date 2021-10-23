@@ -42,17 +42,16 @@ public class Evento {
 		
 	}
 	
-//	public Evento(String nombre, LocalDate fechaHora, String direccion, String cp, String provincia,
-//			String geolocalizacion, TipoEvento tipoEvento, Usuario usuario) {
-//		this.nombre = nombre;
-//		this.fechaHora = fechaHora;
-//		this.direccion = direccion;
-//		this.cp = cp;
-//		this.provincia = provincia;
-//		this.geolocalizacion = geolocalizacion;
-//		this.tipoEvento = tipoEvento;
-//		this.usuario = usuario;
-//	}
+	public Evento(String nombre, LocalDate fechaHora, String direccion, String cp, String provincia,
+			String geolocalizacion, Usuario usuario) {
+		this.nombre = nombre;
+		this.fechaHora = fechaHora;
+		this.direccion = direccion;
+		this.cp = cp;
+		this.provincia = provincia;
+		this.geolocalizacion = geolocalizacion;
+		this.usuario = usuario;
+	}
 	
 	public String getNombre() {
 		return nombre;
@@ -98,6 +97,10 @@ public class Evento {
 //	}
 	public Usuario getUsuario() {
 		return usuario;
+	}	
+	
+	public void setUsuario(Usuario usuario) {
+		this.usuario= usuario;
 	}	
 	
 	public long getId() {

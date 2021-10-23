@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -42,19 +43,18 @@ public class Servicio {
     @JoinColumn(name="user_ID", nullable=false)
 	private Usuario usuario;
 	
+	@OneToOne
+	private TipoServicio tipoServicio;
 	
-//	private TipoServicio tipoServicio;
-//	
-//	
-//	public Servicio(String nombre, TipoServicio tipoServicio, String descripcion, String url, String whatsapp, String instagram, String twitter) {
-//		this.nombre = nombre;
-//		this.tipoServicio= tipoServicio;
-//		this.descripcion = descripcion;
-//		this.url = url;
-//		this.whatsapp = whatsapp;
-//		this.instagram = instagram;
-//		this.twitter = twitter;
-//	}
+	
+	public Servicio(String nombre, String descripcion, String url, String whatsapp, String instagram, String twitter) {
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.url = url;
+		this.whatsapp = whatsapp;
+		this.instagram = instagram;
+		this.twitter = twitter;
+	}
 	
 	public Servicio() {
 		
@@ -159,9 +159,9 @@ public class Servicio {
 //	}
 //
 //
-//	public void setTipoServicio(TipoServicio tipoServicio) {
-//		this.tipoServicio = tipoServicio;
-//	}
+	public void setTipoServicio(TipoServicio tipoServicio) {
+		this.tipoServicio = tipoServicio;
+	}
 
 
 	public long getId() {

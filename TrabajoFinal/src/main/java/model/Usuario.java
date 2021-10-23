@@ -24,7 +24,7 @@ public class Usuario  {
 	//eliminado boolean
 	
 	@OneToMany(mappedBy="usuario", cascade = {CascadeType.PERSIST, CascadeType.MERGE}) 
-	private List<Servicio> servicios = new ArrayList<Servicio>();
+	private List<Servicio> servicios;
 	
 	@OneToMany(mappedBy="usuario")
 	private List<Evento> eventos;
@@ -34,6 +34,7 @@ public class Usuario  {
 		this.apellido = apellido;
 		this.mail = mail;
 		this.contrasena = contrasena;
+		this.servicios=  new ArrayList<Servicio>();
 	}
 	
 	public Usuario() {
