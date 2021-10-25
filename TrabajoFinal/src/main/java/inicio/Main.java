@@ -2,7 +2,7 @@ package inicio;
 
 import java.time.LocalDate;
 
-import DAOImplement.EventoDAO;
+import DAOImplement.EventoDAOimpl;
 import DAOImplement.TipoServicioDAOimpl;
 import DAOImplement.UsuarioDAOimpl;
 import model.Evento;
@@ -26,7 +26,7 @@ public class Main {
 		servicio.setUsuario(usuario);
 		usuarioDAO.guardar(usuario);
 		
-		 EventoDAO eventoDAO = new EventoDAO();
+		 EventoDAOimpl eventoDAO = new EventoDAOimpl();
 	     Evento e = new Evento();
 	     
 	     e.setNombre("nombreEvento");
@@ -39,6 +39,16 @@ public class Main {
 	     e.setUsuario(usuario);
 	     
 	     eventoDAO.guardar(e);
+	     
+	     //update usuario
+	     usuario.setApellido("nuevoApellido");
+	     usuario.setBorrado(true);
+	     usuario.setContrasena("12345");
+	     usuario.setNombre("José");
+	     usuarioDAO.editar(usuario);
+	     
+	     usuarioDAO.recuperar(1);
+	     
 
 
 	}

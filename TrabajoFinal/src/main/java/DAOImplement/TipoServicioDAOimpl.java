@@ -1,10 +1,9 @@
 package DAOImplement;
-
-import DAO.BaseDAO;
+import DAO.TipoServicioDAO;
 import model.TipoServicio;
-import model.Usuario;
 
-public class TipoServicioDAOimpl extends BaseDAOimpl<TipoServicio> {
+public class TipoServicioDAOimpl extends BaseDAOimpl<TipoServicio> implements TipoServicioDAO{
+	
 	static Class<TipoServicio> clase;
 	public TipoServicioDAOimpl() {
 		super(clase);

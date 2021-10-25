@@ -34,6 +34,8 @@ public class Servicio {
 	private String instagram;
 	@Column(nullable=false)
 	private String twitter;
+	@Column(columnDefinition = "boolean default false")
+	private boolean borrado;
 	
 //	private List<BufferedImage> imagenes = new ArrayList<BufferedImage>();
 //	private List<Reserva> reservas= new ArrayList<Reserva>();
@@ -54,6 +56,7 @@ public class Servicio {
 		this.whatsapp = whatsapp;
 		this.instagram = instagram;
 		this.twitter = twitter;
+		this.borrado = false;
 	}
 	
 	public Servicio() {

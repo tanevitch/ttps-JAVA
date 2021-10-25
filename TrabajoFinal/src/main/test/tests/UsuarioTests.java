@@ -17,7 +17,7 @@ public class UsuarioTests {
 	
 	@Before
 	public void setUp() throws Exception {
-		usuario = new Usuario("Juan", "Perez", "juanperez@gmail.com","1234");
+		usuario = new Usuario("Juan Ignacio", "Perez Lala", "juanperez1@gmail.com","1234");
 		servicio= new Servicio("servicio1", "descripcion", "url", "221-222-2222", "ig/servicio1", "tw/servicio1");
 	}
 
@@ -25,7 +25,7 @@ public class UsuarioTests {
 	public void testAgregarUsuario() {
 		usuario.agregarServicio(servicio);
 		usuarioDAO.guardar(usuario);
-		assertTrue(usuarioDAO.buscarPersonaPorMail("juanperez@gmail.com")!= null);
+		assertTrue(usuarioDAO.buscarPersonaPorMail("juanperez1@gmail.com")!= null);
 	}
 	
 //	@Test

@@ -22,6 +22,9 @@ public class Usuario  {
 	@Column(nullable=false)
 	private String contrasena;
 	//eliminado boolean
+	@Column(columnDefinition = "boolean default false")
+	private boolean borrado;
+	
 	
 	@OneToMany(mappedBy="usuario", cascade = {CascadeType.PERSIST, CascadeType.MERGE}) 
 	private List<Servicio> servicios;
@@ -35,6 +38,7 @@ public class Usuario  {
 		this.mail = mail;
 		this.contrasena = contrasena;
 		this.servicios=  new ArrayList<Servicio>();
+		this.borrado= false;
 	}
 	
 	public Usuario() {
@@ -48,7 +52,7 @@ public class Usuario  {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
+	
 	public String getApellido() {
 		return apellido;
 	}
@@ -75,6 +79,14 @@ public class Usuario  {
 
 	public long getId() {
 		return id;
+	}
+	
+	public boolean getBorrado() {
+		return borrado;
+	}
+	
+	public void setBorrado(boolean borrado) {
+		this.borrado = borrado;
 	}
 
 //	public List<Servicio> getServicios() {

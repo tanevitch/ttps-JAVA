@@ -47,10 +47,14 @@ public class BaseDAOimpl<T> implements BaseDAO<T>{
 	}
 
 	@Override
-	public void editar(T entidad) {
-//		entity.getTransaction().begin();
-//		entity.merge(entidad);
-//		entity.getTransaction().commit();
+	public T editar(T entidad) {
+		EntityManager em = EMFSingleton.getEntityManagerFactory().createEntityManager();
+		EntityTransaction etx= em.getTransaction();
+		etx.begin();
+		T entity = em.merge(entidad);
+		etx.commit();
+		em.close();
+		return entity;
 	}
 
 	@Override

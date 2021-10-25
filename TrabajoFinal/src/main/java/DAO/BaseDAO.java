@@ -7,7 +7,7 @@ public interface BaseDAO<T> {
 	
 	public List<T> listar();
 	
-	public void editar(T base);
+	public T editar(T base);
 	
 	public void eliminar(T base);
 	
