@@ -34,7 +34,7 @@ public class Servicio {
 	private String instagram;
 	@Column(nullable=false)
 	private String twitter;
-	@Column(columnDefinition = "boolean default false")
+	@Column(columnDefinition = "boolean default false", nullable=false)
 	private boolean borrado;
 	
 //	private List<BufferedImage> imagenes = new ArrayList<BufferedImage>();

@@ -32,7 +32,7 @@ public class Evento {
 	private String provincia;
 	@Column(nullable=false)
 	private String geolocalizacion;
-	@Column(columnDefinition = "boolean default false")
+	@Column(columnDefinition = "boolean default false", nullable=false)
 	private boolean borrado;
 	
 //	private TipoEvento tipoEvento;

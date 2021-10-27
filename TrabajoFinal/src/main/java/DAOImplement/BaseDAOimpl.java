@@ -58,14 +58,30 @@ public class BaseDAOimpl<T> implements BaseDAO<T>{
 	}
 
 	@Override
-	public void eliminar(T entidad) {
-//		entity.getTransaction().begin();
-//		entity.remove(entidad);
-//		entity.getTransaction().commit();	
+	public void eliminar(long id) {
+		EntityManager em = EMFSingleton.getEntityManagerFactory().createEntityManager();
+		EntityTransaction tx = null;
+		try {
+			tx= em.getTransaction();
+			tx.begin();
+			Usuario entity= em.find(Usuario.class, id);
+			if (entity != null) {
+				em.remove(entity);
+				tx.commit();
+			}
+		}
+		catch (RuntimeException e) {
+			 if ( tx != null && tx.isActive() ) 
+				 tx.rollback();
+			 throw e; // escribir en un log o mostrar un mensaje
+		}
+		finally {
+			em.close();
+		}
 	}
 
 	@Override
-	public void recuperar(int id) {
+	public void recuperar(long id) {
 		// TODO Auto-generated method stub
 		
 	}

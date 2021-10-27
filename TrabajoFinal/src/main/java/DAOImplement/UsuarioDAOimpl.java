@@ -20,10 +20,18 @@ public class UsuarioDAOimpl extends BaseDAOimpl<Usuario> implements UsuarioDAO{
 		super(clase);
 	}
 
-	public Usuario buscarPersonaPorMail(String email) {
+	public Usuario buscarUsuarioPorMail(String email) {
 		 Query consulta = EMFSingleton.getEntityManagerFactory().createEntityManager().
-				createQuery("select p from Persona p where p.email =?");
+				createQuery("select u from Usuario u where u.email =?");
 		 consulta.setParameter(1, email);
+		 Usuario resultado = (Usuario)consulta.getSingleResult();
+		 return resultado;
+	}
+	
+	public Usuario buscarUsuarioPorId(long id) {
+		Query consulta = EMFSingleton.getEntityManagerFactory().createEntityManager().
+				createQuery("select u from Usuario u where u.id =:x");
+		 consulta.setParameter("x", id);
 		 Usuario resultado = (Usuario)consulta.getSingleResult();
 		 return resultado;
 	}

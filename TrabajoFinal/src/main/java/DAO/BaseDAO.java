@@ -9,8 +9,8 @@ public interface BaseDAO<T> {
 	
 	public T editar(T base);
 	
-	public void eliminar(T base);
+	public void eliminar(long id);
 	
-	public void recuperar(int id);
+	public void recuperar(long id);
 	
 }

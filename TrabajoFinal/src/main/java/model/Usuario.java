@@ -22,7 +22,7 @@ public class Usuario  {
 	@Column(nullable=false)
 	private String contrasena;
 	//eliminado boolean
-	@Column(columnDefinition = "boolean default false")
+	@Column(columnDefinition = "boolean default false", nullable=false)
 	private boolean borrado;
 	
 	

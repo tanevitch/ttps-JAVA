@@ -3,6 +3,7 @@ package inicio;
 import java.time.LocalDate;
 
 import DAOImplement.EventoDAOimpl;
+import DAOImplement.ServicioDAOimpl;
 import DAOImplement.TipoServicioDAOimpl;
 import DAOImplement.UsuarioDAOimpl;
 import model.Evento;
@@ -16,6 +17,7 @@ public class Main {
 		Usuario usuario= new Usuario("Juan", "Perez", "juanperez@gmail.com","1234");
 		UsuarioDAOimpl usuarioDAO = new UsuarioDAOimpl();
 		Servicio servicio= new Servicio("servicio1", "descripcion", "url", "221-222-2222", "ig/servicio1", "tw/servicio1");
+		
 		
 		TipoServicio ts= new TipoServicio("limpieza");
 		servicio.setTipoServicio(ts);		
@@ -47,10 +49,27 @@ public class Main {
 	     usuario.setNombre("José");
 	     usuarioDAO.editar(usuario);
 	     
-	     usuarioDAO.recuperar(1);
+	     Usuario user1 = usuarioDAO.buscarUsuarioPorId(1);
+	     System.out.println(user1.getApellido());
+	     Servicio servicio1= new Servicio("servicio21", "descripcion", "url", "221-222-2222", "ig/servicio1", "tw/servicio1");
+	     servicio1.setUsuario(user1);
+	     servicio1.setTipoServicio(ts);
+	     
+	     user1.agregarServicio(servicio1);
+	     usuarioDAO.editar(user1);
 	     
 
-
+	     usuario.setNombre("José");
+	     usuarioDAO.editar(usuario);
+	     
+	     //borrado logico
+	     usuario.setBorrado(true);
+	     usuarioDAO.editar(usuario);
+	     
+	     //borrado fisico
+		Usuario usuario3= new Usuario("Juan", "Perez", "juanperezzzzz@gmail.com","1234");
+		usuarioDAO.guardar(usuario3);
+		usuarioDAO.eliminar(2);
 	}
 
 }
