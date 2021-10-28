@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import DAOImplement.TipoServicioDAOimpl;
 import DAOImplement.UsuarioDAOimpl;
 import model.Servicio;
 import model.TipoServicio;
@@ -17,15 +18,20 @@ public class UsuarioTests {
 	
 	@Before
 	public void setUp() throws Exception {
-		usuario = new Usuario("Juan Ignacio", "Perez Lala", "juanperez1@gmail.com","1234");
+		usuario = new Usuario("Juan", "Perez", "juanperez@gmail.com","1234");
 		servicio= new Servicio("servicio1", "descripcion", "url", "221-222-2222", "ig/servicio1", "tw/servicio1");
+		TipoServicio limpieza = new TipoServicio("limpieza");
+		servicio.setTipoServicio(limpieza);		
+		TipoServicioDAOimpl tsDAO  = new TipoServicioDAOimpl();
+		tsDAO.guardar(limpieza);
 	}
 
 	@Test
 	public void testAgregarUsuario() {
 		usuario.agregarServicio(servicio);
+		servicio.setUsuario(usuario);
 		usuarioDAO.guardar(usuario);
-		assertTrue(usuarioDAO.buscarPersonaPorMail("juanperez1@gmail.com")!= null);
+		assertEquals(usuarioDAO.listar().size(), 1);
 	}
 	
 //	@Test
