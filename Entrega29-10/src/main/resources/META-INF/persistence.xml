@@ -10,6 +10,13 @@
  <class>model.Servicio</class>
  <class>model.Evento</class>
  <class>model.TipoServicio</class>
+ <class>model.FormaDePago</class>
+ <class>model.Puntuacion</class>
+ <class>model.AspectoPuntuacion</class>
+ <class>model.Reserva</class>
+ <class>model.TipoEvento</class>
+ <class>model.CambioDeEstado</class>
+ <class>model.Estado</class>
  <properties>
  <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
  <property name="hibernate.connection.password" value="kitri"/>

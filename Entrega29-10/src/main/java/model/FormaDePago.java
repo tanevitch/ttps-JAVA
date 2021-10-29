@@ -16,6 +16,9 @@ public class FormaDePago {
 	@Column(nullable=false)
 	private String tipo;
 	
+	public FormaDePago() {
+		
+	}
 	public FormaDePago(String tipo) {
 		this.tipo = tipo;
 	}

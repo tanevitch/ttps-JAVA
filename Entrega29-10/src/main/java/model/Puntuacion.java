@@ -24,6 +24,10 @@ public class Puntuacion {
 		this.nota = nota;
 		this.aspectoPuntuacion= aspectoPuntuacion;
 	}
+	
+	public Puntuacion() {
+		
+	}
 
 	public int getNota() {
 		return nota;
