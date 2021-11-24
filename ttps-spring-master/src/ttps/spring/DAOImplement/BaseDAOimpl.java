@@ -1,4 +1,4 @@
-package DAOImplement;
+package ttps.spring.DAOImplement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import javax.persistence.Query;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import DAO.BaseDAO;
+import ttps.spring.DAO.BaseDAO;
 import ttps.spring.model.Usuario;
 
 @Transactional

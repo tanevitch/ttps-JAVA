@@ -1,4 +1,4 @@
-package DAOImplement;
+package ttps.spring.DAOImplement;
 import org.springframework.stereotype.Repository;
 
 import ttps.spring.model.TipoServicio;

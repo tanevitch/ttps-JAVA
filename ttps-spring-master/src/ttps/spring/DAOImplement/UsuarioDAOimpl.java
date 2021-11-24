@@ -1,4 +1,4 @@
-package DAOImplement;
+package ttps.spring.DAOImplement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import DAO.BaseDAO;
-import DAO.UsuarioDAO;
+import ttps.spring.DAO.BaseDAO;
+import ttps.spring.DAO.UsuarioDAO;
 import ttps.spring.model.Servicio;
 import ttps.spring.model.Usuario;
 

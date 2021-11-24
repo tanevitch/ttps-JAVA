@@ -1,4 +1,4 @@
-package DAOImplement;
+package ttps.spring.DAOImplement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +8,7 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import DAO.EventoDAO;
+import ttps.spring.DAO.EventoDAO;
 import ttps.spring.model.Evento;
 
 @Repository

@@ -1,11 +1,11 @@
-package DAOImplement;
+package ttps.spring.DAOImplement;
 import java.util.List;
 
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import DAO.ServicioDAO;
+import ttps.spring.DAO.ServicioDAO;
 import ttps.spring.model.Evento;
 import ttps.spring.model.Servicio;
 

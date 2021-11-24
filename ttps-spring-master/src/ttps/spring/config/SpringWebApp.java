@@ -23,7 +23,7 @@ public class SpringWebApp implements WebApplicationInitializer {
 		//DispatcherServlet - Register and map the dispatcher servlet
 		ServletRegistration.Dynamic dispatcher = container.addServlet("DispatcherServlet", new DispatcherServlet(rootContext));
 		dispatcher.setLoadOnStartup(1);
-		dispatcher.addMapping("/");
+		dispatcher.addMapping("/ttps-spring");
 		
 	}
 

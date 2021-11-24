@@ -2,7 +2,8 @@ package ttps.spring.controllers;
 
 import org.springframework.web.bind.annotation.*;
 
-import DAOImplement.UsuarioDAOimpl;
+import ttps.spring.DAO.UsuarioDAO;
+import ttps.spring.DAOImplement.UsuarioDAOimpl;
 import ttps.spring.model.Usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,26 +17,25 @@ import javax.transaction.Transactional;
 
 
 @RestController
-@RequestMapping(value ="/usuario", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UsuarioRestController {
 	
 @Autowired
-UsuarioDAOimpl userService;
+UsuarioDAO usuarioDAOImpl;
 	
 
-@GetMapping
+@GetMapping("/usuarios")
 public ResponseEntity<List<Usuario>> listAllUser(){
-	List<Usuario> users = userService.listar();
+	List<Usuario> users = usuarioDAOImpl.listar();
 	if(users.isEmpty()) {
 		return new ResponseEntity<List<Usuario>>(HttpStatus.NO_CONTENT);
 	}
 	return new ResponseEntity<List<Usuario>>(users, HttpStatus.OK);
 }
 
-@GetMapping("/{id}")
+@GetMapping("/usuarios/{id}")
 public ResponseEntity<Usuario> getUser(@PathVariable("id") long id){
 	System.out.println("Obteniendo usuario con id " + id);
-	Usuario user = userService.recuperarPorId(id);
+	Usuario user = usuarioDAOImpl.recuperarPorId(id);
 	if (user == null) {
 		System.out.println("Usuario con id "+ id + " no encontrado");
 		return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);		
