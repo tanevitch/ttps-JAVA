@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tipoServicio")
 public class TipoServicio {
@@ -23,8 +25,9 @@ public class TipoServicio {
 	private String nombre;
 	
 	@OneToMany
-    @JoinColumn(nullable=false)
-	private List<AspectoPuntuacion> aspectoAValorar;
+    @JoinColumn(nullable=true)
+	@JsonIgnore
+	private List<AspectoPuntuacion> aspectoAValorar = new ArrayList<AspectoPuntuacion>();
 
 	
 	public TipoServicio(String nombre, List<AspectoPuntuacion> aspectoAValorar) {
@@ -54,10 +57,6 @@ public class TipoServicio {
 
 	public List<AspectoPuntuacion> getAspectoAValorar() {
 		return aspectoAValorar;
-	}
-
-	public void setAspectoAValorar(List<AspectoPuntuacion> aspectoAValorar) {
-		this.aspectoAValorar = aspectoAValorar;
 	}
 	
 	

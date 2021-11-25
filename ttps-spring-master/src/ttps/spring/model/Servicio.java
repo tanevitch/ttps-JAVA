@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "servicio")
 public class Servicio {
@@ -38,12 +40,22 @@ public class Servicio {
 	
 //	private List<BufferedImage> imagenes = new ArrayList<BufferedImage>();
 	
+	public boolean isBorrado() {
+		return borrado;
+	}
+
+	public void setBorrado(boolean borrado) {
+		this.borrado = borrado;
+	}
+
 	@OneToMany(mappedBy="servicio")
+	@JsonIgnore
 	private List<Reserva> reservas;
 	
 
 	@OneToMany
     @JoinColumn(nullable=false)
+	@JsonIgnore
 	private List<Puntuacion> puntuaciones;
 	
 	@ManyToOne
@@ -189,8 +201,19 @@ public class Servicio {
 	public void eliminarReserva(Reserva reserva) {
 		reservas.remove(reserva);
 	}
+
+	public boolean hasEmptyFields() {
+		return nombre == null 
+				|| descripcion== null  
+				|| url == null 
+				|| instagram == null 
+				|| whatsapp == null  
+				|| twitter == null  ;
+	}
 	
 	
-	
+	public String toString() { // se agregó para poder imprimirlos en el main más fácil
+		return "Nombre: "+nombre+ ", Desc: "+descripcion+", wsp " + whatsapp + " url" + url + " tuirer"+twitter+ " ig "+ instagram;
+	}
 	
 }

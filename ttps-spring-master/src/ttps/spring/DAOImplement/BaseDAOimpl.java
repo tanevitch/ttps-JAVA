@@ -63,7 +63,7 @@ public class BaseDAOimpl<T> implements BaseDAO<T>{
 		
 		 Query consulta = this.getEntityManager().createQuery("select e from " + persistentClass.getSimpleName()+ " e where e.id =:identificador");
 		 consulta.setParameter("identificador", id);
-		 return (T)consulta.getSingleResult();
+		 return (T)consulta.getResultList().stream().findFirst().orElse(null);
 		
 	}
 

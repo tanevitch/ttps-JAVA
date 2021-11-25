@@ -14,12 +14,18 @@ public class ServicioDAOimpl extends BaseDAOimpl<Servicio> implements ServicioDA
 		public ServicioDAOimpl() {
 		super(Servicio.class);
 	}
+		
+	@Override
+	public List<Servicio> listar(){
+		Query consulta = this.getEntityManager().createQuery("select s from Servicio s where s.borrado = false");
+		return (List<Servicio>)consulta.getResultList();	
+	}
 
 	@Override
 	public List<Servicio> buscarServicioPorNombre(String nombre) {
 		Query consulta = this.getEntityManager().createQuery("select e from Servicio e where e.nombre like concat('%',:nombre,'%')");
 		consulta.setParameter("nombre", nombre);
-		return (List<Servicio>)consulta.getResultList();	
+		return (List<Servicio>)consulta.getResultList().stream().findFirst().orElse(null);
 				
 	}
 
@@ -27,7 +33,7 @@ public class ServicioDAOimpl extends BaseDAOimpl<Servicio> implements ServicioDA
 	public List<Servicio> buscarServicioPorCategoria(String categoria) {
 		Query consulta = this.getEntityManager().createQuery("select e from Servicio e INNER JOIN TipoServicio ts ON e.tipoServicio=ts.id WHERE ts.nombre = :categoria");
 		consulta.setParameter("categoria", categoria);
-		return (List<Servicio>)consulta.getResultList();
+		return (List<Servicio>)consulta.getResultList().stream().findFirst().orElse(null);
 	}
 	
 	
