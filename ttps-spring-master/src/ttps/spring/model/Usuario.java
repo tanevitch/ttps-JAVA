@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.annotation.JsonView;
 
  
@@ -30,8 +32,8 @@ public class Usuario  {
 	private boolean borrado;
 	
 	
-	@OneToMany(mappedBy="usuario", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true) 
-	@JsonIgnore
+	@OneToMany(mappedBy="usuario",fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true) 
+	@JsonManagedReference 
 	private List<Servicio> servicios;
 	
 	@OneToMany(mappedBy="usuario", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)

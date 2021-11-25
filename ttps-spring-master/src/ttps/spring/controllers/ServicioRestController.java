@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -74,21 +75,35 @@ public class ServicioRestController {
 		 return new ResponseEntity<Servicio>(serviceNuevo, HttpStatus.CREATED);
 	}
 	
-//	@PutMapping("/servicios/{id}")
-//	public ResponseEntity<Servicio> modificar(@PathVariable("id") long id, @RequestBody Servicio serviceMod){
-//		System.out.println("Obteniendo Servicio con id " + id);
-//		Servicio service = servicioDAO.recuperarPorId(id);
-//		if (service == null) {
-//			System.out.println("Servicio con id "+ id + " no encontrado");
-//			return new ResponseEntity<Servicio>(HttpStatus.NOT_FOUND);		
-//		}
-//		
-//		service.setNombre(serviceMod.getNombre());
-//		service.setApellido(serviceMod.getApellido());
-//		service.setMail(serviceMod.getMail());
-//		service.setContrasena(serviceMod.getContrasena());
-//		return new ResponseEntity<Servicio>(service, HttpStatus.OK);
-//	}
+	@PatchMapping("/servicios/{id}")
+	public ResponseEntity<Servicio> modificar(@PathVariable("id") long id, @RequestBody Servicio serviceMod){
+		System.out.println("Obteniendo Servicio con id " + id);
+		Servicio service = servicioDAO.recuperarPorId(id);
+		if (service == null) {
+			System.out.println("Servicio con id "+ id + " no encontrado");
+			return new ResponseEntity<Servicio>(HttpStatus.NOT_FOUND);		
+		}
+		if (serviceMod.hasEmptyFields()) {
+			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		}
+		
+		service.setNombre(serviceMod.getNombre());
+		service.setDescripcion(serviceMod.getDescripcion());
+		service.setWhatsapp(serviceMod.getWhatsapp());
+		service.setInstagram(serviceMod.getInstagram());
+		service.setUrl(serviceMod.getUrl());
+		service.setTwitter(serviceMod.getTwitter());
+		
+		Usuario user = usuarioDAOImpl.recuperarPorId(serviceMod.getUsuario().getId());
+		TipoServicio ts = tipoServicioDAOImpl.recuperarPorId(serviceMod.getTipoServicio().getId());
+		if (user == null || ts == null) {
+			return new ResponseEntity<Servicio>(HttpStatus.NOT_FOUND);		
+		}
+		
+		service.setTipoServicio(ts);
+		service.setUsuario(user);
+		return new ResponseEntity<Servicio>(service, HttpStatus.OK);
+	}
 	
 	@DeleteMapping("/servicios/{id}")
 	 public ResponseEntity<Servicio> borrar(@PathVariable("id") long id) {
