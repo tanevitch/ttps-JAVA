@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiJava: "http://localhost:8080/ttps-spring/"
+  apiJava: "http://localhost:8080/"
 
 };
 

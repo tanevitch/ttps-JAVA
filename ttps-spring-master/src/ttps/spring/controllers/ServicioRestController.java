@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -25,6 +26,7 @@ import ttps.spring.model.Usuario;
 import ttps.spring.services.ServicioService;
 import ttps.spring.services.UserService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/servicios")
 public class ServicioRestController {
@@ -32,7 +34,7 @@ public class ServicioRestController {
 	
 	@Autowired
 	ServicioService servicioService;
-
+	
 	@GetMapping(path="")
 	public ResponseEntity<List<Servicio>> servicios(){
 		List<Servicio> services = servicioService.listar();

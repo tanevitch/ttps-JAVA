@@ -21,6 +21,7 @@ export class MisServiciosComponent implements OnInit {
   obtenerServicios(){
     this.servicioService.getServicios().subscribe(res =>{
         this.listServicios = res;
+        console.log(res)
     })
   }
 

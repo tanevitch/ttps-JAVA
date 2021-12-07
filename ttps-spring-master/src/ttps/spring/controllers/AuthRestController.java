@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,7 @@ import ttps.spring.model.Usuario;
 import ttps.spring.services.AuthorizationService;
 import ttps.spring.services.TokenService;
 
-
+@CrossOrigin
 @RestController
 public class AuthRestController {
 
@@ -24,7 +25,7 @@ public class AuthRestController {
 	
 	@Autowired
 	private TokenService tokenService;
-	private final int EXPIRATION_IN_SEC= 60;
+	private final int EXPIRATION_IN_SEC= 3600;
 	
 	@PostMapping("/login")
 	public ResponseEntity<Usuario> login(@RequestBody Map<String, String> credenciales){

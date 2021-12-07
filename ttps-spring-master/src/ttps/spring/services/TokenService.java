@@ -14,6 +14,7 @@ public class TokenService {
 	
 	public String generarToken(String email, int segundos) {
 		Date exp = new Date(System.currentTimeMillis() + segundos * 1000);
+		System.out.println(exp);
 		return Jwts.builder().setSubject(email).signWith(key).setExpiration(exp).compact();
 	}
 	

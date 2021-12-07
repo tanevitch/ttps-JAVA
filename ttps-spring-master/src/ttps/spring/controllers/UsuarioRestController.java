@@ -14,7 +14,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioRestController {
