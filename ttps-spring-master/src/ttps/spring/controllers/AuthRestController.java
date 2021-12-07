@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RestController;
 import ttps.spring.DAO.UsuarioDAO;
 import ttps.spring.model.Servicio;
 import ttps.spring.model.Usuario;
+import ttps.spring.services.AuthorizationService;
 
 
 @RestController
 public class AuthRestController {
 
 	@Autowired
-	UsuarioDAO usuarioDAOImpl;
+	AuthorizationService authService;
 	
 	@PostMapping("/login")
 	public ResponseEntity<Usuario> login(@RequestBody Map<String, String> credenciales){
 		if (credenciales.get("mail") == null || credenciales.get("contrasena") == null) {
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		}
-		Usuario userEncontrado = usuarioDAOImpl.buscarUsuarioPorMail(credenciales.get("mail"));
-		if (userEncontrado == null || !userEncontrado.getContrasena().equals(credenciales.get("contrasena"))) {
-			return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+		HttpStatus codigoRta = authService.verificar(credenciales);
+		if (codigoRta != HttpStatus.OK) {
+			return new ResponseEntity(codigoRta);
 		}
-		return new ResponseEntity<Usuario>(userEncontrado, HttpStatus.OK);
-		
+		return new ResponseEntity<Usuario>(HttpStatus.OK);
 	}
 	
 }
