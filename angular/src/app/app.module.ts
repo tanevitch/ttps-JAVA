@@ -19,6 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     LoginComponent,
+    RegistroComponent,
     AppComponent,
     HomeComponent,
     MisServiciosComponent,

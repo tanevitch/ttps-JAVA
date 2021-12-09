@@ -1,6 +1,7 @@
 
-import {Component, OnInit } from '@angular/core';
-
+import {Component } from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -8,14 +9,20 @@ import {Component, OnInit } from '@angular/core';
   styleUrls: ['../../app.component.css']
 })
 
-export class RegistroComponent implements OnInit {
+export class RegistroComponent{
+  constructor(private userService: UsuarioService, private router: Router) { }
 
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-
+  onSubmit(data: string){
+    this.userService.registrar(data)
+    .subscribe(
+      () => {
+        this.router.navigate(["login"])
+      },
+      error => {
+        if (error.status == 409){
+          alert("El email ya existe");
+        }
+      });
   }
 
 }

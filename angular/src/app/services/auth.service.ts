@@ -23,4 +23,8 @@ export class AuthService {
       );
 
   }
+
+  public logout(){
+    window.localStorage.clear()
+  }
 }

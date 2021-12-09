@@ -24,7 +24,8 @@ public class JWTFilter implements Filter{
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
 		HttpServletRequest req = (HttpServletRequest) request;
-		if ("/login".equals(req.getRequestURI()) || HttpMethod.OPTIONS.matches(req.getMethod())) {
+		
+		if ("/login".equals(req.getRequestURI()) || HttpMethod.OPTIONS.matches(req.getMethod()) || ("/usuarios".equals(req.getRequestURI()) & HttpMethod.POST.matches(req.getMethod()))) {
 			chain.doFilter(request, response);
 			return;
 		}
