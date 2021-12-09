@@ -9,17 +9,18 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
   endpoint: string = 'login'
   constructor(private http: HttpClient) { }
-  public login(){
+  public login(data: string){
     let url = environment.apiJava + this.endpoint;
-    this.http.post<string>(url,
-      {
-        "mail": "juanperez@gmail.com",
-        "contrasena": "12345"
+    this.http.post<string>(url,data)
+    .subscribe(
+      data => {
+        window.localStorage.setItem("token", data);
+        window.location.href = "servicios"
+      },
+      error => {
+        console.log("Error", error);
       }
-      ).subscribe(res =>{
-      console.log(res)
-      localStorage.setItem("token", res);
-    })
+      );
 
   }
 }

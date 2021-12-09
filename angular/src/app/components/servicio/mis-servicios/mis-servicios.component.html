@@ -1,130 +1,22 @@
 <section class="container py-5">
   <div class="row">
 
-    <div class="col-lg-3 py-2">
+    <div class="col-lg-3 py-2"  *ngFor="let item of listServicios">
       <div class="card h-100">
         <div class="card-header text-white rojo ">
-          <h5 class="card-title text-center">Servicio 1</h5>
+          <h5 class="card-title text-center">{{item.nombre}}</h5>
         </div>
         <div class="card-body">
-          <h6 class="card-title ">Tipo: Catering</h6>
+          <h6 class="card-title ">{{item.tipoServicio.nombre}}</h6>
 
-          <p class="card-text ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text ">{{item.descripcion}}</p>
          </div>
         <div class="card-footer text-center">
           <a href="#" class="btn btn-light border border-3">Ver solicitudes</a>
           <button type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-          <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>            </div>
+          <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>
+        </div>
       </div>
     </div>
-
-      <div class="col-lg-3 py-2">
-          <div class="card h-100">
-            <div class="card-header text-white rojo ">
-              <h5 class="card-title text-center">Servicio 2</h5>
-            </div>
-            <div class="card-body">
-              <h6 class="card-title ">Tipo: Catering</h6>
-
-              <p class="card-text ">
-                This content is a little bit longer.</p>
-             </div>
-            <div class="card-footer text-center">
-              <a href="#" class="btn btn-light border border-3">Ver pedidos</a>
-              <button type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-              <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 py-2">
-          <div class="card h-100">
-            <div class="card-header text-white rojo ">
-              <h5 class="card-title text-center">Servicio 3</h5>
-            </div>
-            <div class="card-body">
-                <h6 class="card-title ">Tipo: Catering</h6>
-
-                <p class="card-text ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            <div class="card-footer text-center">
-              <a href="#" class="btn btn-light border border-3">Ver pedidos</a>
-              <button type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-              <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 py-2">
-          <div class="card h-100">
-            <div class="card-header text-white rojo ">
-              <h5 class="card-title text-center">Servicio 4</h5>
-            </div>
-            <div class="card-body">
-                <h6 class="card-title ">Tipo: Catering</h6>
-
-                <p class="card-text ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            <div class="card-footer text-center">
-              <a href="#" class="btn btn-light border border-3">Ver pedidos</a>
-              <button type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-              <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 py-2">
-          <div class="card h-100">
-            <div class="card-header text-white rojo ">
-              <h5 class="card-title text-center">Servicio 5</h5>
-            </div>
-            <div class="card-body">
-                <h6 class="card-title ">Tipo: Catering</h6>
-
-                <p class="card-text ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-            <div class="card-footer text-center">
-              <a href="#" class="btn btn-light border border-3">Ver pedidos</a>
-              <button type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-              <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 py-2">
-            <div class="card h-100">
-              <div class="card-header text-white rojo ">
-
-                <h5 class="card-title text-center text-white">Servicio 6</h5>
-              </div>
-              <div class="card-body">
-                  <h6 class="card-title ">Tipo: Catering</h6>
-
-                  <p class="card-text ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              <div class="card-footer text-center">
-                  <a href="#" class="btn btn-light border border-3">Ver pedidos</a>
-                  <button type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                  <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>            </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 py-2">
-            <div class="card h-100">
-              <div class="card-header text-white rojo ">
-                <h5 class="card-title text-center ">Servicio 7</h5>
-              </div>
-              <div class="card-body">
-                  <h6 class="card-title ">Tipo: Catering</h6>
-
-                  <p class="card-text ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              <div class="card-footer text-center">
-                  <a href="#" class="btn btn-light border border-3">Ver pedidos</a>
-                  <button type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                  <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-          </div>
-
-
-
   </div>
-
 </section>

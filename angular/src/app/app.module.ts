@@ -17,11 +17,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
+    LoginComponent,
     AppComponent,
     HomeComponent,
     MisServiciosComponent,
-    NuevoServicioComponent,
-    LoginComponent
+    NuevoServicioComponent
   ],
   imports: [
     BrowserModule,

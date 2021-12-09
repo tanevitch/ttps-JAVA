@@ -7,12 +7,12 @@ export class Servicio {
   public twitter: string;
   public url: string;
   public whatsapp: string;
-  public tipoServicio_id: number;
+  public tipoServicio: {id: number, nombre: string};
   public usuario_id: number;
 
 constructor (id: number, borrado: boolean, descripcion: string,
              instagram: string, nombre: string, twitter: string,
-             url: string, whatsapp: string, tipoServicio_id: number, usuario_id: number,){
+             url: string, whatsapp: string, tipoServicio: {id: number, nombre: string}, usuario_id: number,){
   this.id = id;
   this.borrado = borrado;
   this.descripcion = descripcion;
@@ -21,7 +21,7 @@ constructor (id: number, borrado: boolean, descripcion: string,
   this.twitter = twitter;
   this.url = url;
   this.whatsapp = whatsapp;
-  this.tipoServicio_id = tipoServicio_id;
+  this.tipoServicio = tipoServicio;
   this.usuario_id = usuario_id;
 }
 }
