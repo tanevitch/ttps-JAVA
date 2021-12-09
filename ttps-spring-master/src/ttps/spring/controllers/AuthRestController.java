@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import ttps.spring.DAO.UsuarioDAO;
 import ttps.spring.model.Servicio;
 import ttps.spring.model.Usuario;
@@ -28,7 +27,7 @@ public class AuthRestController {
 	private final int EXPIRATION_IN_SEC= 3600;
 	
 	@PostMapping("/login")
-	public ResponseEntity<Usuario> login(@RequestBody Map<String, String> credenciales){
+	public ResponseEntity<String> login(@RequestBody Map<String, String> credenciales){
 		if (credenciales.get("mail") == null || credenciales.get("contrasena") == null) {
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		}
@@ -37,7 +36,9 @@ public class AuthRestController {
 			return new ResponseEntity(codigoRta);
 		}
 		String token = tokenService.generarToken(credenciales.get("mail"), EXPIRATION_IN_SEC);
-		return new ResponseEntity(token, HttpStatus.OK);
+		String a = "\""+token+"\"";
+
+		return new ResponseEntity<String>(a, HttpStatus.OK);
 	}
 	
 }
