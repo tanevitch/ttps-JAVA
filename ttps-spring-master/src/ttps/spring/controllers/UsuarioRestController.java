@@ -16,7 +16,7 @@ import javax.transaction.Transactional;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/api/usuarios")
 public class UsuarioRestController {
 	
 	@Autowired	
