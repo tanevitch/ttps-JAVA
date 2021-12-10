@@ -12,6 +12,7 @@ import { NuevoServicioComponent } from './components/servicio/nuevo-servicio/nue
 import { RegistroComponent } from './components/registro/registro.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     MisServiciosComponent,
-    NuevoServicioComponent
+    NuevoServicioComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
