@@ -60,10 +60,6 @@ public class AuthRestController {
 			 return new ResponseEntity(codigoRta);
 		 }
 		 return new ResponseEntity<Usuario>(userNuevo, HttpStatus.CREATED);
-=======
-		String a = "\""+token+"\"";
-		return new ResponseEntity<String>(a, HttpStatus.OK);
->>>>>>> 266c8361193a593e57644df16e8a90dea6f657cc
 	}
 	
 }
