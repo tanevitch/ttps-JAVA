@@ -28,16 +28,15 @@ public class AuthRestController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<String> login(@RequestBody Map<String, String> credenciales){
-		if (credenciales.get("mail") == null || credenciales.get("contrasena") == null) {
-			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		if (credenciales.get("mail") == "" || credenciales.get("contrasena") == "") {
+			return new ResponseEntity("El email y la contraseña no pueden estar vacios", HttpStatus.BAD_REQUEST);
 		}
 		HttpStatus codigoRta = authService.verificar(credenciales);
 		if (codigoRta != HttpStatus.OK) {
-			return new ResponseEntity(codigoRta);
+			return new ResponseEntity("Email o contraseña incorrecta", codigoRta);
 		}
 		String token = tokenService.generarToken(credenciales.get("mail"), EXPIRATION_IN_SEC);
 		String a = "\""+token+"\"";
-
 		return new ResponseEntity<String>(a, HttpStatus.OK);
 	}
 	

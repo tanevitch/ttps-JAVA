@@ -18,7 +18,12 @@ export class AuthService {
         window.location.href = "servicios"
       },
       error => {
-        console.log("Error", error);
+        if (error.status == "400" || error.status == "401"){
+          alert(error.error);
+        }
+        else{
+          alert("Ocurrió un error")
+        }
       }
       );
 
