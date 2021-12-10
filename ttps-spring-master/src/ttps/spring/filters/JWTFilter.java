@@ -19,16 +19,12 @@ import org.springframework.http.HttpStatus;
 import ttps.spring.services.TokenService;
 
 
-@WebFilter(filterName="jwt-auth-filter", urlPatterns="*")
+@WebFilter(filterName="jwt-auth-filter", urlPatterns="/api/*")
 public class JWTFilter implements Filter{
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
 		HttpServletRequest req = (HttpServletRequest) request;
-		
-		if ("/login".equals(req.getRequestURI()) || HttpMethod.OPTIONS.matches(req.getMethod()) || ("/usuarios".equals(req.getRequestURI()) & HttpMethod.POST.matches(req.getMethod()))) {
-			chain.doFilter(request, response);
-			return;
-		}
+
 		String token = req.getHeader(HttpHeaders.AUTHORIZATION);
 		if (token == null || (! TokenService.validar(token))) {
 			System.out.println("Entre");

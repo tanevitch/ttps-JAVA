@@ -28,7 +28,7 @@ import ttps.spring.services.UserService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/servicios")
+@RequestMapping("/api/servicios")
 public class ServicioRestController {
 
 	
