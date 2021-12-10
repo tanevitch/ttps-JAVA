@@ -36,8 +36,13 @@ export class AuthService {
     this.router.navigate([""])
   }
 
-  public existeToken(){
-    return window.localStorage.getItem("token") != null
+  public obtenerToken(){
+    return  window.localStorage.getItem("token")
   }
+
+  public existeToken(){
+    return this.obtenerToken() != null
+  }
+
 
 }
