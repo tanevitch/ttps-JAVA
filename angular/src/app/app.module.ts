@@ -13,6 +13,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProtegerRutaGuard } from './guards/proteger-ruta.guard';
+
 
 
 
@@ -36,8 +38,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
       { path : 'login', component: LoginComponent},
       { path : 'registro', component: RegistroComponent},
       { path : '', component: HomeComponent},
-      { path : 'servicios', component: MisServiciosComponent},
-      { path : 'servicios/nuevo', component: NuevoServicioComponent}
+      { path : 'servicios', component: MisServiciosComponent, canActivate: [ProtegerRutaGuard]},
+      { path : 'servicios/nuevo', component: NuevoServicioComponent, canActivate: [ProtegerRutaGuard]}
 
     ])
   ],
