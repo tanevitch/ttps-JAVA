@@ -14,7 +14,7 @@ export class ServicioService {
 
   endpoint: string = 'api/servicios'
   constructor(private http: HttpClient, private authService: AuthService) { }
-  
+
   public getServicios(): Observable<Array<Servicio>>{
     let url = environment.apiJava + this.endpoint;
     return this.http.get<Array<Servicio>>(url, {
@@ -32,5 +32,10 @@ export class ServicioService {
         Authorization: `Bearer ${this.authService.obtenerToken()}`
       }
     });
-  }  
+  }
+
+  public borrarServicio(serv: Servicio): Observable<any>{
+    let url = environment.apiJava + this.endpoint + `/${serv.id}`
+    return this.http.delete(url)
+  }
 }
