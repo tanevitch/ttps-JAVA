@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProtegerRutaGuard } from './guards/proteger-ruta.guard';
 import { EditarServicioComponent} from './components/servicio/editar-servicio/editar-servicio.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -28,7 +29,8 @@ import { EditarServicioComponent} from './components/servicio/editar-servicio/ed
     MisServiciosComponent,
     NuevoServicioComponent,
     NavbarComponent,
-    EditarServicioComponent
+    EditarServicioComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { EditarServicioComponent} from './components/servicio/editar-servicio/ed
       { path : '', component: HomeComponent},
       { path : 'servicios', component: MisServiciosComponent, canActivate: [ProtegerRutaGuard]},
       { path : 'servicios/nuevo', component: NuevoServicioComponent, canActivate: [ProtegerRutaGuard]},
-      { path : 'servicios/editar/:id', component: EditarServicioComponent, canActivate: [ProtegerRutaGuard]}
+      { path : 'servicios/editar/:id', component: EditarServicioComponent, canActivate: [ProtegerRutaGuard]},
+      { path : 'dashboard', component: DashboardComponent, canActivate: [ProtegerRutaGuard]},      
     ])
   ],
   providers: [],
