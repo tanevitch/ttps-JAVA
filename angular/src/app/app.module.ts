@@ -16,6 +16,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProtegerRutaGuard } from './guards/proteger-ruta.guard';
 import { EditarServicioComponent} from './components/servicio/editar-servicio/editar-servicio.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TodosServiciosComponent } from './components/servicio/todos-servicios/todos-servicios.component';
 
 
 
@@ -30,7 +31,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     NuevoServicioComponent,
     NavbarComponent,
     EditarServicioComponent,
-    DashboardComponent
+    DashboardComponent,
+    TodosServiciosComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
       { path : 'servicios', component: MisServiciosComponent, canActivate: [ProtegerRutaGuard]},
       { path : 'servicios/nuevo', component: NuevoServicioComponent, canActivate: [ProtegerRutaGuard]},
       { path : 'servicios/editar/:id', component: EditarServicioComponent, canActivate: [ProtegerRutaGuard]},
-      { path : 'dashboard', component: DashboardComponent, canActivate: [ProtegerRutaGuard]},      
+      { path : 'dashboard', component: DashboardComponent, canActivate: [ProtegerRutaGuard]},
+      { path : 'todosservicios', component: TodosServiciosComponent, canActivate: [ProtegerRutaGuard]},            
     ])
   ],
   providers: [],
