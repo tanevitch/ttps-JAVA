@@ -15,11 +15,11 @@ export class MisServiciosComponent implements OnInit {
   constructor(private servicioService: ServicioService) { }
 
   ngOnInit(): void {
-    this.obtenerServicios();
+    this.obtenerMisServicios();
   }
 
-  obtenerServicios(){
-    this.servicioService.getServicios().subscribe(res =>{
+  obtenerMisServicios(){
+    this.servicioService.getMisServicios().subscribe(res =>{
         this.listServicios = res;
         console.log(res)
     })

@@ -43,6 +43,10 @@ export class AuthService {
     return  window.localStorage.getItem("token")
   }
 
+  public obtenerIdUsuario(){
+    return  window.localStorage.getItem("id_usuario")
+  }
+
   public existeToken(){
     return this.obtenerToken() != null
   }

@@ -12,7 +12,7 @@ import { AuthService } from './auth.service';
 export class ServicioService {
 
 
-  endpoint: string = 'servicios'
+  endpoint: string = 'api/servicios'
   constructor(private http: HttpClient, private authService: AuthService) { }
   
   public getServicios(): Observable<Array<Servicio>>{
@@ -23,4 +23,14 @@ export class ServicioService {
       }
     });
   }
+
+  public getMisServicios(): Observable<Array<Servicio>>{
+    let urlMisServicios = '/usuario/' + this.authService.obtenerIdUsuario()
+    let url = environment.apiJava + this.endpoint + urlMisServicios;
+    return this.http.get<Array<Servicio>>(url, {
+      headers: {
+        Authorization: `Bearer ${this.authService.obtenerToken()}`
+      }
+    });
+  }  
 }
