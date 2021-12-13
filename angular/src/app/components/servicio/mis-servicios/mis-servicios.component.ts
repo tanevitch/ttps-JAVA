@@ -20,9 +20,14 @@ export class MisServiciosComponent implements OnInit {
 
   obtenerMisServicios(){
     this.servicioService.getMisServicios().subscribe(res =>{
-        this.listServicios = res;
-        console.log(res)
-    })
+      this.listServicios = res;
+      console.log(res)
+  })
+}
+
+  borrarServicio(serv: Servicio){
+    this.servicioService.borrarServicio(serv).subscribe(()=> {this.obtenerMisServicios()})
+
   }
 
 }
