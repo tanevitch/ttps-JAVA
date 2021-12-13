@@ -14,6 +14,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProtegerRutaGuard } from './guards/proteger-ruta.guard';
+import { EditarServicioComponent} from './components/servicio/editar-servicio/editar-servicio.component';
 
 
 
@@ -26,7 +27,8 @@ import { ProtegerRutaGuard } from './guards/proteger-ruta.guard';
     HomeComponent,
     MisServiciosComponent,
     NuevoServicioComponent,
-    NavbarComponent
+    NavbarComponent,
+    EditarServicioComponent
   ],
   imports: [
     BrowserModule,
@@ -39,8 +41,8 @@ import { ProtegerRutaGuard } from './guards/proteger-ruta.guard';
       { path : 'registro', component: RegistroComponent},
       { path : '', component: HomeComponent},
       { path : 'servicios', component: MisServiciosComponent, canActivate: [ProtegerRutaGuard]},
-      { path : 'servicios/nuevo', component: NuevoServicioComponent, canActivate: [ProtegerRutaGuard]}
-
+      { path : 'servicios/nuevo', component: NuevoServicioComponent, canActivate: [ProtegerRutaGuard]},
+      { path : 'servicios/editar/:id', component: EditarServicioComponent, canActivate: [ProtegerRutaGuard]}
     ])
   ],
   providers: [],

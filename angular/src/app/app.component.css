@@ -263,3 +263,7 @@ direction: rtl;
 .rating2 a {
 float:none
 }
+
+#nuevoServicio{
+  background-image: linear-gradient( rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.226) 100%), url("../assets/img/nuevoServicio.jpg")
+}
