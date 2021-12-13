@@ -34,6 +34,8 @@ public class ServicioRestController {
 	
 	@Autowired
 	ServicioService servicioService;
+	@Autowired	
+	UserService usuarioService;
 	
 	@GetMapping(path="")
 	public ResponseEntity<List<Servicio>> servicios(){
@@ -98,4 +100,17 @@ public class ServicioRestController {
 	 return new ResponseEntity<Servicio>(HttpStatus.OK);
 	 }
 	
+
+	@GetMapping("/usuario/{id}")
+	public ResponseEntity<List<Servicio>> listarPorUsuario(@PathVariable("id") long id){
+		Usuario user = usuarioService.recuperarPorId(id);
+		if (user == null) {
+			return new ResponseEntity<List<Servicio>>(HttpStatus.NOT_FOUND);
+		}
+		List<Servicio> services = servicioService.listarPorUsuarioId(user);
+		if(services.isEmpty()) {
+			return new ResponseEntity<List<Servicio>>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<Servicio>>(services, HttpStatus.OK);
+	}	
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import ttps.spring.DAO.ServicioDAO;
 import ttps.spring.model.Evento;
 import ttps.spring.model.Servicio;
+import ttps.spring.model.Usuario;
 
 @Repository
 public class ServicioDAOimpl extends BaseDAOimpl<Servicio> implements ServicioDAO{
@@ -36,6 +37,13 @@ public class ServicioDAOimpl extends BaseDAOimpl<Servicio> implements ServicioDA
 		return (List<Servicio>)consulta.getResultList().stream().findFirst().orElse(null);
 	}
 	
+	@Override
+	public List<Servicio> buscarServicioPorUsuario(Usuario usuario) {
+		Query consulta = this.getEntityManager().createQuery("select e from Servicio e WHERE e.usuario = :usuario");
+		consulta.setParameter("usuario", usuario);
+		return (List<Servicio>)consulta.getResultList();	
+		
+	}
 	
 
 }

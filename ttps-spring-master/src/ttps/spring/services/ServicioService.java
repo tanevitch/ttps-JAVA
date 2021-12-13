@@ -80,6 +80,11 @@ public class ServicioService {
 		service.setBorrado(true);
 		servicioDAOImpl.editar(service);
 	}
+	
+
+	public List<Servicio> listarPorUsuarioId(Usuario usuario) {
+		return servicioDAOImpl.buscarServicioPorUsuario(usuario);
+	}	
 
 	
 }
