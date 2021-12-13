@@ -15,18 +15,18 @@ export class MisServiciosComponent implements OnInit {
   constructor(private servicioService: ServicioService) { }
 
   ngOnInit(): void {
-    this.obtenerServicios();
+    this.obtenerMisServicios();
   }
 
-  obtenerServicios(){
-    this.servicioService.getServicios().subscribe(res =>{
-        this.listServicios = res;
-        console.log(res)
-    })
-  }
+  obtenerMisServicios(){
+    this.servicioService.getMisServicios().subscribe(res =>{
+      this.listServicios = res;
+      console.log(res)
+  })
+}
 
   borrarServicio(serv: Servicio){
-    this.servicioService.borrarServicio(serv).subscribe(()=> {this.obtenerServicios()})
+    this.servicioService.borrarServicio(serv).subscribe(()=> {this.obtenerMisServicios()})
 
   }
 
