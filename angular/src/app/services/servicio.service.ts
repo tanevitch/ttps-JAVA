@@ -1,9 +1,9 @@
-import { environment } from './../../environments/environment';
+import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Servicio } from '../models/servicio/servicio';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from './auth.service';
 
 
 @Injectable({

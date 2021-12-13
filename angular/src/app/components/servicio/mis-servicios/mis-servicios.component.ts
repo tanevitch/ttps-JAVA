@@ -1,7 +1,7 @@
-import { ServicioService } from './../../../services/servicio.service';
+import { ServicioService } from '../../../services/servicio.service';
 import { Component, OnInit } from '@angular/core';
 
-import { Servicio } from 'src/app/models/servicio/servicio';
+import { Servicio } from '../../../models/servicio/servicio';
 
 @Component({
   selector: 'app-mis-servicios',
