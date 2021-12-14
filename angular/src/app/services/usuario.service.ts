@@ -12,7 +12,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   public registrar(data: string): Observable<Usuario>{
-    let url = environment.apiJava + this.endpoint;
+    let url = environment.apiJava + "registrarse";
     return this.http.post<Usuario>(url, data);
   }
 }

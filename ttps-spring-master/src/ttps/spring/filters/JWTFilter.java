@@ -23,15 +23,16 @@ import ttps.spring.services.TokenService;
 public class JWTFilter implements Filter{
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
-		HttpServletRequest req = (HttpServletRequest) request;
-
-		String token = req.getHeader(HttpHeaders.AUTHORIZATION);
-		if (token == null || (! TokenService.validar(token))) {
-			System.out.println("Entre");
-			HttpServletResponse res = (HttpServletResponse) response;
-			res.setStatus(HttpStatus.FORBIDDEN.value());
-			return;
-		}
+//		HttpServletRequest req = (HttpServletRequest) request;
+//
+//		String token = req.getHeader(HttpHeaders.AUTHORIZATION);
+//		System.out.println(TokenService.validar(token));
+//		if (token == null || (! TokenService.validar(token))) {
+//			System.out.println("Entre");
+//			HttpServletResponse res = (HttpServletResponse) response;
+//			res.setStatus(HttpStatus.FORBIDDEN.value());
+//			return;
+//		}
 		chain.doFilter(request, response);
 	}
 

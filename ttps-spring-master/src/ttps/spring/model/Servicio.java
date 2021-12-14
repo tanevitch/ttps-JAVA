@@ -29,13 +29,13 @@ public class Servicio {
 	private String nombre;
 	@Column(nullable=false)
 	private String descripcion;
-	@Column(nullable=false)
+	@Column(nullable=true)
 	private String url;
 	@Column(nullable=false)
 	private String whatsapp;
-	@Column(nullable=false)
+	@Column(nullable=true)
 	private String instagram;
-	@Column(nullable=false)
+	@Column(nullable=true)
 	private String twitter;
 	@Column(columnDefinition = "boolean default false", nullable=false)
 	private boolean borrado;
@@ -208,10 +208,8 @@ public class Servicio {
 	public boolean hasEmptyFields() {
 		return nombre == null 
 				|| descripcion== null  
-				|| url == null 
-				|| instagram == null 
 				|| whatsapp == null  
-				|| twitter == null  ;
+				  ;
 	}
 	
 	

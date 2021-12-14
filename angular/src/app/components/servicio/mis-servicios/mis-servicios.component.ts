@@ -2,6 +2,7 @@ import { ServicioService } from '../../../services/servicio.service';
 import { Component, OnInit } from '@angular/core';
 
 import { Servicio } from '../../../models/servicio/servicio';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mis-servicios',
@@ -12,7 +13,7 @@ export class MisServiciosComponent implements OnInit {
 
   public listServicios: Array<Servicio> = [];
 
-  constructor(private servicioService: ServicioService) { }
+  constructor(private servicioService: ServicioService, private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerMisServicios();
@@ -22,12 +23,16 @@ export class MisServiciosComponent implements OnInit {
     this.servicioService.getMisServicios().subscribe(res =>{
       this.listServicios = res;
       console.log(res)
-  })
+    })
 }
 
   borrarServicio(serv: Servicio){
     this.servicioService.borrarServicio(serv).subscribe(()=> {this.obtenerMisServicios()})
 
+  }
+
+  editarServicio(serv: Servicio){
+    this.router.navigate([`servicios/editar/${serv.id}`])
   }
 
 }

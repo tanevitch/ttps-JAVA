@@ -17,6 +17,7 @@ import { ProtegerRutaGuard } from './guards/proteger-ruta.guard';
 import { EditarServicioComponent} from './components/servicio/editar-servicio/editar-servicio.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TodosServiciosComponent } from './components/servicio/todos-servicios/todos-servicios.component';
+import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 
 
 
@@ -32,7 +33,8 @@ import { TodosServiciosComponent } from './components/servicio/todos-servicios/t
     NavbarComponent,
     EditarServicioComponent,
     DashboardComponent,
-    TodosServiciosComponent
+    TodosServiciosComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { TodosServiciosComponent } from './components/servicio/todos-servicios/t
       { path : 'login', component: LoginComponent},
       { path : 'registro', component: RegistroComponent},
       { path : '', component: HomeComponent},
+      { path : 'perfil', component: PerfilComponent },
       { path : 'servicios', component: MisServiciosComponent, canActivate: [ProtegerRutaGuard]},
       { path : 'servicios/nuevo', component: NuevoServicioComponent, canActivate: [ProtegerRutaGuard]},
       { path : 'servicios/editar/:id', component: EditarServicioComponent, canActivate: [ProtegerRutaGuard]},

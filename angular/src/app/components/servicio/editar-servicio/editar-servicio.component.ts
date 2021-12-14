@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { ServicioService } from 'src/app/services/servicio.service';
+import { TipoServicioService } from 'src/app/services/tiposervicio.service';
 
 @Component({
   selector: 'app-editar-servicio',
@@ -21,7 +24,7 @@ export class EditarServicioComponent implements OnInit {
   ;
   servicio: FormGroup;
   ngOnInit() {
-
+    this.servicioService.getServicioConId(1).subscribe( res => console.log(res))
     this.servicio = new FormGroup({
       nombre: new FormControl(this.servicioData.nombre, [Validators.required]),
       tipo: new FormControl(this.servicioData.tipo, [Validators.required]),
@@ -34,9 +37,21 @@ export class EditarServicioComponent implements OnInit {
       web: new FormControl(this.servicioData.web)
     });
   }
-  constructor(private fb: FormBuilder) { }
+  constructor(private authService: AuthService, private tipoServicioService: TipoServicioService, private servicioService: ServicioService) { }
 
   onSubmit(){
-    console.log(JSON.stringify(this.servicio.value))
+    var datos= this.servicio.value
+    datos["usuario"] = {
+      id: this.authService.obtenerIdUsuario()
+    }
+    datos["tipoServicio"]={
+      id: datos["tipoServicio"]
+    }
+    this.servicioService.editarServicio(datos).subscribe(
+      (      res: any) => {
+        console.log(res)
+      }
+    )
+
   }
 }
