@@ -42,10 +42,10 @@ export class NuevoServicioComponent implements OnInit {
     }
     if (confirm('¿Está seguro que desea crear este servicio?')){
       this.servicioService.nuevoServicio(datos).subscribe(res =>{
-        console.log(res)
+      this.router.navigate(["servicios"]);
       });
-      this.router.navigate(["servicios"]);  
-    }    
+
+    }
 
   }
 }
