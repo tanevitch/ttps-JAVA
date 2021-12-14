@@ -39,7 +39,7 @@ public class ServicioDAOimpl extends BaseDAOimpl<Servicio> implements ServicioDA
 	
 	@Override
 	public List<Servicio> buscarServicioPorUsuario(Usuario usuario) {
-		Query consulta = this.getEntityManager().createQuery("select e from Servicio e WHERE e.usuario = :usuario");
+		Query consulta = this.getEntityManager().createQuery("select e from Servicio e WHERE e.usuario = :usuario and e.borrado = 0");
 		consulta.setParameter("usuario", usuario);
 		return (List<Servicio>)consulta.getResultList();	
 		
