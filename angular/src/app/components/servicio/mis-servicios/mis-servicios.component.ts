@@ -27,7 +27,11 @@ export class MisServiciosComponent implements OnInit {
 }
 
   borrarServicio(serv: Servicio){
-    this.servicioService.borrarServicio(serv).subscribe(()=> {this.obtenerMisServicios()})
+    if (confirm('¿Está seguro que desea borrar el servicio?')){
+      this.servicioService.borrarServicio(serv).subscribe(()=> {this.obtenerMisServicios()})
+      this.router.navigate(["servicios"]);  
+    }
+ 
 
   }
 

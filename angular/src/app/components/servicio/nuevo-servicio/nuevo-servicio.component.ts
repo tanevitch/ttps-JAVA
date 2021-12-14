@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ServicioService } from 'src/app/services/servicio.service';
 import { TipoServicioService } from 'src/app/services/tiposervicio.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nuevo-servicio',
@@ -29,7 +30,7 @@ export class NuevoServicioComponent implements OnInit {
       web: new FormControl('')
     });
   }
-  constructor(private authService: AuthService, private tipoServicioService: TipoServicioService, private servicioService: ServicioService) { }
+  constructor(private authService: AuthService, private tipoServicioService: TipoServicioService, private servicioService: ServicioService,  private router: Router) { }
 
   onSubmit(){
     var datos= this.servicio.value
@@ -39,8 +40,12 @@ export class NuevoServicioComponent implements OnInit {
     datos["tipoServicio"]={
       id: datos["tipoServicio"]
     }
-    this.servicioService.nuevoServicio(datos).subscribe(res =>{
-      console.log(res)
-    })
+    if (confirm('¿Está seguro que desea crear este servicio?')){
+      this.servicioService.nuevoServicio(datos).subscribe(res =>{
+        console.log(res)
+      });
+      this.router.navigate(["servicios"]);  
+    }    
+
   }
 }

@@ -34,7 +34,7 @@ export class ServicioService {
   }
 
   public getMisServicios(): Observable<Array<Servicio>>{
-    let urlMisServicios = '/usuario/1'
+    let urlMisServicios = '/usuario/' + this.authService.obtenerIdUsuario();
     let url = environment.apiJava + this.endpoint + urlMisServicios;
     return this.http.get<Array<Servicio>>(url, {
       headers: {
