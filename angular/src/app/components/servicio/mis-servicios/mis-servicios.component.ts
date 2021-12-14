@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class MisServiciosComponent implements OnInit {
 
+  public existenServ: boolean = false;
   public listServicios: Array<Servicio> = [];
+  
 
   constructor(private servicioService: ServicioService, private router: Router) { }
 
@@ -22,8 +24,10 @@ export class MisServiciosComponent implements OnInit {
   obtenerMisServicios(){
     this.servicioService.getMisServicios().subscribe(res =>{
       this.listServicios = res;
-      console.log(res)
     })
+    if(this.listServicios.length > 0){
+      this.existenServ = true
+    }
 }
 
   borrarServicio(serv: Servicio){

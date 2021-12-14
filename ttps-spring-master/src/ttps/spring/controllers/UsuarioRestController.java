@@ -61,6 +61,10 @@ public class UsuarioRestController {
 		 if (userMod.hasEmptyFields()) {
 			 return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		 }
+		 if(userMod.getContrasena().equals("")) {
+			 Usuario userOriginal = usuarioService.recuperarPorId(id);
+			 userMod.setContrasena(userOriginal.getContrasena());
+		 }
 		 HttpStatus codigoRta = usuarioService.editar(userMod, id);
 		 if (codigoRta != HttpStatus.OK) {
 			 return new ResponseEntity(codigoRta); 

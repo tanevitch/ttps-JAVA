@@ -3,16 +3,31 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Usuario } from '../models/usuario/usuario';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  endpoint: string = 'usuarios'
-  constructor(private http: HttpClient) { }
+  endpoint: string = 'api/usuarios'
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   public registrar(data: string): Observable<Usuario>{
     let url = environment.apiJava + "registrarse";
     return this.http.post<Usuario>(url, data);
+  }
+
+  public getDatos(): Observable<Usuario>{
+    let url = environment.apiJava + this.endpoint + "/" + this.authService.obtenerIdUsuario();
+    return this.http.get<Usuario>(url, {
+      headers: {
+        Authorization: `Bearer ${this.authService.obtenerToken()}`
+      }
+    });
+  }
+
+  public editarDatos(data: string): Observable<Usuario>{
+    let url = environment.apiJava + this.endpoint + "/" + this.authService.obtenerIdUsuario();
+    return this.http.put<Usuario>(url, data);
   }
 }
