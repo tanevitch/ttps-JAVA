@@ -86,5 +86,7 @@ public class ServicioService {
 		return servicioDAOImpl.buscarServicioPorUsuario(usuario);
 	}	
 
-	
+	public List<Servicio> buscarServiciosQueNoSonDelUsuario(Usuario usuario){
+		return servicioDAOImpl.buscarServiciosQueNoSonDelUsuario(usuario);
+	}
 }
