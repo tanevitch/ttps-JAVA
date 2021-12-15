@@ -1,5 +1,5 @@
 <section class="container py-5">
-  <div class="row" *ngIf="existenServ; else elseBlock">
+  <div class="row">
     <div  class="col-lg-3 py-2"  *ngFor="let item of listServicios">
       <div class="card h-100">
         <div class="card-header text-white rojo ">
@@ -18,5 +18,4 @@
       </div>
     </div>
   </div>
-  <ng-template #elseBlock><h3>No tienes servicios cargados aún</h3></ng-template>
 </section>
