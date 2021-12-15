@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand h1" href="dashboard">
+        <a class="navbar-brand h1" routerLink="dashboard">
             <!-- <i class='bx bx-world bx-sm text-dark'></i> -->
             <span class="text-dark h4">Reserv</span><span class="text-primary  h4">AR</span>
         </a>
@@ -11,10 +11,10 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
                 <ul class="navbar-nav align-items-center" *ngIf="authService.existeToken(); else elseBlock">
                     <li class="nav-item">
-                        <a href="servicios" class="nav-link btn-nav rounded-pill" >Mis servicios</a>
+                        <a routerLink="servicios" class="nav-link btn-nav rounded-pill" >Mis servicios</a>
                     </li>
                     <li class="nav-item">
-                        <a href="servicios/nuevo" class="nav-link btn-nav rounded-pill" >Publicar servicio</a>
+                        <a routerLink="servicios/nuevo" class="nav-link btn-nav rounded-pill" >Publicar servicio</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav align-items-center" *ngIf="authService.existeToken()">

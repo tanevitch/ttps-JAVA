@@ -23,6 +23,7 @@ export class MisServiciosComponent implements OnInit {
       text: "No podrás revertirlo",
       icon: 'warning',
       showCancelButton: true,
+      cancelButtonText: 'Cancelar',
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Borrar'
