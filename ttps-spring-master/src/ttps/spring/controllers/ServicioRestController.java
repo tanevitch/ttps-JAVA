@@ -113,4 +113,17 @@ public class ServicioRestController {
 		}
 		return new ResponseEntity<List<Servicio>>(services, HttpStatus.OK);
 	}	
+	
+	@GetMapping("/excepto_usuario/{id}")
+	public ResponseEntity<List<Servicio>> listarExceptoUsuario(@PathVariable("id") long id){
+		Usuario user = usuarioService.recuperarPorId(id);
+		if (user == null) {
+			return new ResponseEntity<List<Servicio>>(HttpStatus.NOT_FOUND);
+		}
+		List<Servicio> services = servicioService.buscarServiciosQueNoSonDelUsuario(user);
+		if(services.isEmpty()) {
+			return new ResponseEntity<List<Servicio>>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<Servicio>>(services, HttpStatus.OK);
+	}
 }
