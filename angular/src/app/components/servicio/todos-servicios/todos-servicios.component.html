@@ -1,22 +1,27 @@
-<section class="container py-5">
-    <div class="row">
-  
-      <div class="col-lg-3 py-2"  *ngFor="let item of listServicios">
-        <div class="card h-100">
-          <div class="card-header text-white rojo ">
-            <h5 class="card-title text-center">{{item.nombre}}</h5>
+<section>
+  <div class="container">
+      <div class="row my-5 justify-content-center">
+          <div class="col-lg-4 py-2" *ngFor="let item of listServicios">
+              <div class="card  h-100 mb-2 " style="max-width: 100%;">
+                  <div class="card-header rojo">
+                  </div>
+                  <img class="card-img-top" src="assets/img/show1.jpg" alt="Card image cap">
+                  <div class="card-body ">
+                      <p style="font-size: large;">
+                          <strong>{{item.nombre}}</strong>
+                          <br>
+                          <small>{{item.tipoServicio.nombre}}</small>
+                      </p>
+                      <p>
+                        {{item.descripcion}}
+                      </p>
+                      <p class="fst-italic text-muted small">
+                          Tel: {{item.whatsapp}}
+                      </p>
+                      <button type="button" class="btn btn-primary">Reservar</button>
+                  </div>
+              </div>
           </div>
-          <div class="card-body">
-            <h6 class="card-title ">{{item.tipoServicio.nombre}}</h6>
-  
-            <p class="card-text ">{{item.descripcion}}</p>
-           </div>
-          <div class="card-footer text-center">
-            <a href="#" class="btn btn-light border border-3">Ver solicitudes</a>
-            <button type="button" class="btn btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-            <button type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
+  </div>
+</section>
