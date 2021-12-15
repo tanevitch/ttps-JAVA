@@ -1,8 +1,10 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ServicioService } from 'src/app/services/servicio.service';
 import { TipoServicioService } from 'src/app/services/tiposervicio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-servicio',
@@ -19,7 +21,7 @@ export class EditarServicioComponent implements OnInit {
     this.tipoServicioService.getCategorias().subscribe(res =>{
       this.tiposervicios= res;
     })
-    
+
     this.servicio = new FormGroup({
       nombre: new FormControl('', [Validators.required]),
       tipoServicio: new FormControl('', [Validators.required]),
@@ -37,7 +39,16 @@ export class EditarServicioComponent implements OnInit {
       this.servicio.patchValue(res)
     })
   }
-  constructor(private authService: AuthService, private tipoServicioService: TipoServicioService, private servicioService: ServicioService) { }
+  constructor(private authService: AuthService, private tipoServicioService: TipoServicioService, private servicioService: ServicioService, private router: Router) { }
+
+
+  serviceUpdated(){
+    Swal.fire(
+      'Actualizado!',
+      '',
+      'success'
+    )
+  }
 
   onSubmit(){
     var datos= this.servicio.value
@@ -46,12 +57,12 @@ export class EditarServicioComponent implements OnInit {
       id: this.authService.obtenerIdUsuario()
     }
     datos["tipoServicio"]={
-      id: datos["tipoServicio"].id  
+      id: datos["tipoServicio"].id
     }
-    console.log(datos)
     this.servicioService.editarServicio(datos).subscribe(
       (res: any) => {
-        console.log(res)
+        this.router.navigate(["servicios"]);
+        this.serviceUpdated()
       }
     )
 

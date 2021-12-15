@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-perfil',
@@ -8,14 +9,30 @@ import { Router } from '@angular/router';
   styleUrls: ['../../../app.component.css'],
 })
 export class PerfilComponent implements OnInit {
-  usuarioData = 
+  usuarioData =
   {
-    nombre: "", 
+    nombre: "",
     apellido: "",
     mail: "",
     contrasena:""
   }
 
+  successUpdate(){
+    Swal.fire(
+      'Actualizado!',
+      'Usuario editado correctamente',
+      'success'
+    )
+  }
+
+  errorUpdate(){
+    Swal.fire(
+      'Ocurrió un error',
+      'Intente nuevamente',
+      'warning'
+    )
+
+  }
   constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
@@ -31,11 +48,11 @@ export class PerfilComponent implements OnInit {
   onSubmit(data: string) {
     this.usuarioService.editarDatos(data).subscribe(
       res => {
-        alert("Usuario editado correctamente");
+        this.successUpdate();
         this.router.navigate(["dashboard"])
       },
       error => {
-        alert("Ocurrió un error, intente nuevamente")
+        this.errorUpdate()
       }
     )
   }
