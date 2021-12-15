@@ -25,7 +25,7 @@ export class ServicioService {
   }
 
   public getServicios(): Observable<Array<Servicio>>{
-    let url = environment.apiJava + this.endpoint;
+    let url = environment.apiJava + this.endpoint + "/excepto_usuario/" + this.authService.obtenerIdUsuario();
     return this.http.get<Array<Servicio>>(url, {
       headers: {
         Authorization: `Bearer ${this.authService.obtenerToken()}`
