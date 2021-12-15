@@ -20,6 +20,14 @@ export class AuthService {
     })
   }
 
+  errorLogin(error: any){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: error,
+    })
+  }
+
   constructor(private http: HttpClient, private router: Router) { }
   public login(data: string){
     let url = environment.apiJava + this.endpoint;
@@ -33,7 +41,7 @@ export class AuthService {
       },
       error => {
         if (error.status == "400" || error.status == "401"){
-          alert(error.error);
+          this.errorLogin(error.error);
         }
         else{
           this.simpleAlert()
