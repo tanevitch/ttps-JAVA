@@ -8,17 +8,25 @@
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="pepe" >
-            <ul class="navbar-nav align-items-center lista-flex " *ngIf="authService.existeToken(); else elseBlock">
-                <li class="nav-item"><a href="servicios" class="btn btn-primary" >Mis servicios</a></li>
-                <li class="nav-item"><a href="servicios/nuevo" class="btn btn-primary" >Publicar servicio</a></li>
-                <li class="nav-item"><a  class="btn btn-primary" href="perfil">Mis datos</a></li>
-                <li class="nav-item"><a  class="btn btn-primary" (click)="logout()">Cerrar sesión</a></li>
-            </ul>
-            <ng-template #elseBlock><ul class="navbar-nav align-items-center lista-flex ">
-                <li class="nav-item "><a type="button" class="btn btn-primary" href="/login">Iniciar Sesión</a></li>
-                <li class="nav-item"><a type="button" class="btn btn-primary" href="/registro">Registrarse</a></li> 
-            </ul></ng-template>    
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+                <ul class="navbar-nav align-items-center" *ngIf="authService.existeToken(); else elseBlock">
+                    <li class="nav-item">
+                        <a href="servicios" class="nav-link btn-nav rounded-pill" >Mis servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="servicios/nuevo" class="nav-link btn-nav rounded-pill" >Publicar servicio</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav align-items-center" *ngIf="authService.existeToken()">
+                    <li class="nav-item"><a  class="btn btn-primary" routerLink="perfil">Mis datos</a></li>
+                    <li class="nav-item"><a  class="btn btn-primary" (click)="logout()">Cerrar sesión</a></li>
+                </ul >
+                <ng-template #elseBlock>
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                        <li class="nav-item "><a type="button" class="btn btn-primary" routerLink="/login">Iniciar Sesión</a></li>
+                        <li class="nav-item"><a type="button" class="btn btn-primary" routerLink="/registro">Registrarse</a></li>
+                    </ul>
+                </ng-template>
         </div>
     </div>
 </nav>

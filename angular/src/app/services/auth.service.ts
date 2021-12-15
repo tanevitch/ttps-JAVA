@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Auth } from '../models/auth/auth';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,14 @@ export class AuthService {
   endpoint: string = 'login'
 
 
+  simpleAlert(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Ocurrió un error!',
+    })
+  }
+
   constructor(private http: HttpClient, private router: Router) { }
   public login(data: string){
     let url = environment.apiJava + this.endpoint;
@@ -18,8 +27,8 @@ export class AuthService {
     .subscribe(
       data => {
         window.localStorage.setItem("email", data.email);
-        window.localStorage.setItem("id_usuario", data.user_id);        
-        window.localStorage.setItem("token", data.token);                
+        window.localStorage.setItem("id_usuario", data.user_id);
+        window.localStorage.setItem("token", data.token);
         this.router.navigate(["dashboard"])
       },
       error => {
@@ -27,7 +36,7 @@ export class AuthService {
           alert(error.error);
         }
         else{
-          alert("Ocurrió un error")
+          this.simpleAlert()
         }
       }
       );

@@ -1,8 +1,10 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ServicioService } from 'src/app/services/servicio.service';
 import { TipoServicioService } from 'src/app/services/tiposervicio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-servicio',
@@ -10,46 +12,57 @@ import { TipoServicioService } from 'src/app/services/tiposervicio.service';
   styleUrls: ['../../../app.component.css'],
 })
 export class EditarServicioComponent implements OnInit {
-  servicioData = 
-    {
-      nombre: "Pipo y Pipa", 
-      tipo: "Catering",
-      descripcion: "lorem Ipsum",
-      telefono: "2213334444", 
-      facebook: "",
-      twitter: "",
-      instagram: "",
-      web: ""
-    }
-  ;
+  id= window.location.pathname.split("/").pop()
   servicio: FormGroup;
+  tiposervicios: any
+  tipoActual: any
+
   ngOnInit() {
-    this.servicioService.getServicioConId(1).subscribe( res => console.log(res))
+    this.tipoServicioService.getCategorias().subscribe(res =>{
+      this.tiposervicios= res;
+    })
+
     this.servicio = new FormGroup({
-      nombre: new FormControl(this.servicioData.nombre, [Validators.required]),
-      tipo: new FormControl(this.servicioData.tipo, [Validators.required]),
-      descripcion: new FormControl(this.servicioData.descripcion, [Validators.required]),
-      telefono: new FormControl(this.servicioData.telefono, [Validators.required]),
-      facebook: new FormControl(this.servicioData.facebook),
-      instagram: new FormControl(this.servicioData.instagram),
-      twitter: new FormControl(this.servicioData.twitter),
+      nombre: new FormControl('', [Validators.required]),
+      tipoServicio: new FormControl('', [Validators.required]),
+      descripcion: new FormControl('', [Validators.required]),
+      whatsapp: new FormControl('', [Validators.required]),
+      facebook: new FormControl(''),
+      instagram: new FormControl(''),
+      twitter: new FormControl(''),
       foto: new FormControl(''),
-      web: new FormControl(this.servicioData.web)
+      web: new FormControl('')
     });
+
+    this.servicioService.getServicioConId(this.id).subscribe( res => {
+      this.tipoActual = res.tipoServicio
+      this.servicio.patchValue(res)
+    })
   }
-  constructor(private authService: AuthService, private tipoServicioService: TipoServicioService, private servicioService: ServicioService) { }
+  constructor(private authService: AuthService, private tipoServicioService: TipoServicioService, private servicioService: ServicioService, private router: Router) { }
+
+
+  serviceUpdated(){
+    Swal.fire(
+      'Actualizado!',
+      '',
+      'success'
+    )
+  }
 
   onSubmit(){
     var datos= this.servicio.value
+    datos["id"]= this.id
     datos["usuario"] = {
       id: this.authService.obtenerIdUsuario()
     }
     datos["tipoServicio"]={
-      id: datos["tipoServicio"]
+      id: datos["tipoServicio"].id
     }
     this.servicioService.editarServicio(datos).subscribe(
-      (      res: any) => {
-        console.log(res)
+      (res: any) => {
+        this.router.navigate(["servicios"]);
+        this.serviceUpdated()
       }
     )
 

@@ -15,7 +15,7 @@ export class ServicioService {
   endpoint: string = 'api/servicios'
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  public getServicioConId(id: number){
+  public getServicioConId(id: any){
     let url = environment.apiJava + this.endpoint + "/"+id;
     return this.http.get<Servicio>(url, {
       headers: {
