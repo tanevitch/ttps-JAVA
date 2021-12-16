@@ -17,30 +17,18 @@ export class ServicioService {
 
   public getServicioConId(id: any){
     let url = environment.apiJava + this.endpoint + "/"+id;
-    return this.http.get<Servicio>(url, {
-      headers: {
-        Authorization: `Bearer ${this.authService.obtenerToken()}`
-      }
-    });
+    return this.http.get<Servicio>(url);
   }
 
   public getServicios(): Observable<Array<Servicio>>{
     let url = environment.apiJava + this.endpoint + "/excepto_usuario/" + this.authService.obtenerIdUsuario();
-    return this.http.get<Array<Servicio>>(url, {
-      headers: {
-        Authorization: `Bearer ${this.authService.obtenerToken()}`
-      }
-    });
+    return this.http.get<Array<Servicio>>(url);
   }
 
   public getMisServicios(): Observable<Array<Servicio>>{
     let urlMisServicios = '/usuario/' + this.authService.obtenerIdUsuario();
     let url = environment.apiJava + this.endpoint + urlMisServicios;
-    return this.http.get<Array<Servicio>>(url, {
-      headers: {
-        Authorization: `Bearer ${this.authService.obtenerToken()}`
-      }
-    });
+    return this.http.get<Array<Servicio>>(url);
   }
 
   public borrarServicio(serv: Servicio): Observable<any>{

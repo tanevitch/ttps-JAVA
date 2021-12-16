@@ -19,11 +19,7 @@ export class UsuarioService {
 
   public getDatos(): Observable<Usuario>{
     let url = environment.apiJava + this.endpoint + "/" + this.authService.obtenerIdUsuario();
-    return this.http.get<Usuario>(url, {
-      headers: {
-        Authorization: `Bearer ${this.authService.obtenerToken()}`
-      }
-    });
+    return this.http.get<Usuario>(url);
   }
 
   public editarDatos(data: string): Observable<Usuario>{

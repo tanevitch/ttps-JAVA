@@ -12,7 +12,7 @@
                                   <div class="form-group col-sm-6 flex-column d-flex"> 
                                     <label class="form-control-label px-3">Tipo de servicio<span class="text-danger"> *</span></label> 
                                     <select formControlName="tipoServicio" required class="form-select" aria-label="Default select example">
-                                    <option *ngFor="let tipo of tiposervicios" [ngValue]="tipo.id" [selected]="tipo.id == tipoActual.id">{{tipo.nombre}}</option>
+                                    <option *ngFor="let tipo of tiposervicios" [ngValue]="tipo.id" id="{{tipo.id}}">{{tipo.nombre}}</option>
                                   </select>
                                 </div>
                             </div>
@@ -21,8 +21,12 @@
                                   <label class="form-control-label px-3 descrip">Descripción<span class="text-danger"> *</span></label> 
                                   <textarea  formControlName="descripcion" id="ans" name="ans"  placeholder="Ingrese detalles de su servicio que considere importantes" required></textarea>
                               </div>
-                              <label for="imagenes" class="form-control-label px-3">Galería de imágenes</label>
-                              <input type="file" class="custom-file-input me-2 " id="imagenes">
+                              <label for="imagenes" class="form-control-label px-3 mb-2">Imagen</label>
+                              <div class="d-flex">
+                                <img class="card-img-top" src={{foto}} alt="Card image cap" style="height: 40%; width: auto;">
+                                <input type="file"  accept=".png, .jpg, .jpeg" (change)="onUploadChange($event)" class="custom-file-input me-2 " id="imagenes" >
+                         
+                              </div>
                                 
                             <div>
                                 <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label contacto">Contacto</label>
@@ -33,11 +37,7 @@
                                           </div>
                                         <div class="form-group col-sm-6 flex-column d-flex"> 
                                             <label class="form-control-label px-3">Página web<span class="text-danger"></span></label> 
-                                            <input     formControlName="web" type="text" id="email" name="email" placeholder="" required> 
-                                          </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> 
-                                            <label class="form-control-label px-3">Facebook<span class="text-danger"></span></label> 
-                                            <input formControlName="facebook" type="text" id="email" name="email" placeholder="Ingrese el nombre de su cuenta" required> 
+                                            <input     formControlName="url" type="text" id="email" name="email" placeholder="" required> 
                                           </div>
                                         <div class="form-group col-sm-6 flex-column d-flex"> 
                                             <label class="form-control-label px-3">Instagram<span class="text-danger"></span></label> 
@@ -53,7 +53,7 @@
                             </div>
                             <div class="botonOk">
                                 <div class="form-group col-sm-6"> <button id="boton" type="submit" class="btn-block btn-primary but ">Confirmar</button> </div>
-                                <div class="form-group col-sm-6"> <button id="boton" type="submit" class="btn-block btn-primary but">Cancelar</button> </div>
+                                <div class="form-group col-sm-6"> <button id="boton" type="button" (click)="volver()" class="btn-block btn-primary but">Cancelar</button> </div>
                             </div>
       
                         </form>

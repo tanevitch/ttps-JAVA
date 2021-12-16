@@ -16,7 +16,23 @@ export class EditarServicioComponent implements OnInit {
   servicio: FormGroup;
   tiposervicios: any
   tipoActual: any
+  foto: string;
 
+  onUploadChange(evt: any) {
+    const file = evt.target.files[0];
+  
+    if (file) {
+      const reader = new FileReader();
+  
+      reader.onload = this.handleReaderLoaded.bind(this);
+      reader.readAsBinaryString(file);
+    }
+  }
+  
+  handleReaderLoaded(e: any) {
+    
+    this.foto = "data:image/png;base64,"+btoa(e.target.result);
+  }
   ngOnInit() {
     this.tipoServicioService.getCategorias().subscribe(res =>{
       this.tiposervicios= res;
@@ -27,27 +43,29 @@ export class EditarServicioComponent implements OnInit {
       tipoServicio: new FormControl('', [Validators.required]),
       descripcion: new FormControl('', [Validators.required]),
       whatsapp: new FormControl('', [Validators.required]),
-      facebook: new FormControl(''),
       instagram: new FormControl(''),
       twitter: new FormControl(''),
       foto: new FormControl(''),
-      web: new FormControl('')
+      url: new FormControl('')
     });
 
     this.servicioService.getServicioConId(this.id).subscribe( res => {
       this.tipoActual = res.tipoServicio
+      this.foto = res.foto
       this.servicio.patchValue(res)
+      var opt = document.getElementById(this.tipoActual.id);
+      opt?.setAttribute("selected", "selected")
     })
   }
+
+  ngDoCheck(){
+
+  }
+
   constructor(private authService: AuthService, private tipoServicioService: TipoServicioService, private servicioService: ServicioService, private router: Router) { }
 
-
-  serviceUpdated(){
-    Swal.fire(
-      'Actualizado!',
-      '',
-      'success'
-    )
+  volver(){
+    this.router.navigate(["servicios"]);
   }
 
   onSubmit(){
@@ -59,12 +77,22 @@ export class EditarServicioComponent implements OnInit {
     datos["tipoServicio"]={
       id: datos["tipoServicio"].id
     }
+    datos["foto"]= this.foto
     this.servicioService.editarServicio(datos).subscribe(
-      (res: any) => {
+      () =>{
+        Swal.fire(
+          '¡Listo!',
+          'Tu servicio ha sido creado.',
+          'success'
+        )
         this.router.navigate(["servicios"]);
-        this.serviceUpdated()
-      }
-    )
-
+      },
+      () => {
+        Swal.fire(
+          '¡Oops!',
+          'Ha ocurrido un error! Vuelve a intentarlo más tarde',
+          'error'
+        )
+      });
   }
 }

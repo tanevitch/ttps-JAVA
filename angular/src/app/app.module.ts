@@ -2,7 +2,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,9 +18,7 @@ import { EditarServicioComponent} from './components/servicio/editar-servicio/ed
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TodosServiciosComponent } from './components/servicio/todos-servicios/todos-servicios.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
-
-
-
+import { TokenizerService } from './services/tokenizer.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +52,7 @@ import { PerfilComponent } from './components/usuario/perfil/perfil.component';
       { path : 'todosservicios', component: TodosServiciosComponent, canActivate: [ProtegerRutaGuard]},            
     ])
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass: TokenizerService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
