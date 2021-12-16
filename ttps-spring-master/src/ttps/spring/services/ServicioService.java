@@ -67,6 +67,7 @@ public class ServicioService {
 		service.setInstagram(serviceMod.getInstagram());
 		service.setUrl(serviceMod.getUrl());
 		service.setTwitter(serviceMod.getTwitter());
+		service.setFoto(serviceMod.getFoto());
 		
 		service.setTipoServicio(ts);
 		service.setUsuario(user);

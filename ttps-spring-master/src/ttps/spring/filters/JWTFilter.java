@@ -21,30 +21,36 @@ import ttps.spring.services.TokenService;
 
 @WebFilter(filterName="jwt-auth-filter", urlPatterns="/api/*")
 public class JWTFilter implements Filter{
+	private FilterConfig filterConf;
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException{
-//		HttpServletRequest req = (HttpServletRequest) request;
-//
-//		String token = req.getHeader(HttpHeaders.AUTHORIZATION);
-//		System.out.println(TokenService.validar(token));
-//		if (token == null || (! TokenService.validar(token))) {
-//			System.out.println("Entre");
-//			HttpServletResponse res = (HttpServletResponse) response;
-//			res.setStatus(HttpStatus.FORBIDDEN.value());
-//			return;
-//		}
+		HttpServletRequest req = (HttpServletRequest) request;
+		if (HttpMethod.OPTIONS.matches(req.getMethod())) {
+	         chain.doFilter(request, response);
+	         return;
+	    }
+
+		String token = req.getHeader(HttpHeaders.AUTHORIZATION);
+		System.out.println(token);
+		if (token == null || (! TokenService.validar(token))) {
+			System.out.println("Entre");
+			System.out.println();
+			HttpServletResponse res = (HttpServletResponse) response;
+			res.setStatus(HttpStatus.FORBIDDEN.value());
+			return;
+		}
 		chain.doFilter(request, response);
 	}
 
-	@Override
-	public void init(FilterConfig filterConfig) throws ServletException {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        this.filterConf = filterConfig;
+    }
+    
+    @Override
+    public void destroy() {
+        this.filterConf = null;
+    }
+
 }

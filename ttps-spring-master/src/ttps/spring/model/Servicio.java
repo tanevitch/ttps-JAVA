@@ -39,9 +39,17 @@ public class Servicio {
 	private String twitter;
 	@Column(columnDefinition = "boolean default false", nullable=false)
 	private boolean borrado;
+	@Column(nullable=false)
+	private String foto;
 	
-//	private List<BufferedImage> imagenes = new ArrayList<BufferedImage>();
-	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
 	public boolean isBorrado() {
 		return borrado;
 	}
@@ -144,20 +152,6 @@ public class Servicio {
 	}
 
 
-
-//	public List<BufferedImage> getImagenes() {
-//		return imagenes;
-//	}
-//
-//
-//	public void agregarImagen(BufferedImage imagen) {
-//		this.imagenes.add(imagen);
-//	}
-//	
-//	public void eliminarImagen(BufferedImage imagen) {
-//		this.imagenes.remove(imagen);
-//	}
-//
 	public List<Puntuacion> getPuntuaciones() {
 		return puntuaciones;
 	}
@@ -209,7 +203,7 @@ public class Servicio {
 		return nombre == null 
 				|| descripcion== null  
 				|| whatsapp == null  
-				  ;
+				|| foto == null  ;
 	}
 	
 	
