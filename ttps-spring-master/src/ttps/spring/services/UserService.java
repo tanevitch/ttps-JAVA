@@ -30,28 +30,28 @@ public class UserService {
 		return usuarioDAOImpl.buscarUsuarioPorMail(email);
 	}
 	
-	public HttpStatus crear(Usuario userNuevo) {
+	public ResponseEntity crear(Usuario userNuevo) {
 		Usuario user = usuarioDAOImpl.buscarUsuarioPorMail(userNuevo.getMail());
 		if (user != null) {
 			 System.out.println("Ya existe un usuario con mail " + userNuevo.getMail());
-			return HttpStatus.CONFLICT; 
+			return new ResponseEntity("Ya existe un usuario con mail " + userNuevo.getMail(), HttpStatus.CONFLICT); 
 		}
 		usuarioDAOImpl.guardar(userNuevo);
-		return HttpStatus.OK;
+		return new ResponseEntity(HttpStatus.OK);
 	}
 	
-	public HttpStatus editar(Usuario userMod, long id) {
+	public ResponseEntity editar(Usuario userMod, long id) {
 		
 		Usuario user = usuarioDAOImpl.recuperarPorId(id);
 		if (user == null) {
-			 return HttpStatus.BAD_REQUEST;		
+			 return new ResponseEntity("El usuario con id "+id+" es inválido", HttpStatus.BAD_REQUEST);		
 		}
 		 
 		user.setNombre(userMod.getNombre());
 		user.setApellido(userMod.getApellido());
 		user.setContrasena(userMod.getContrasena());
 		usuarioDAOImpl.editar(user);
-		return HttpStatus.OK;
+		return new ResponseEntity(HttpStatus.OK);
 	}
 	
 }

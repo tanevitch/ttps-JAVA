@@ -200,10 +200,10 @@ public class Servicio {
 	}
 
 	public boolean hasEmptyFields() {
-		return nombre == null 
-				|| descripcion== null  
-				|| whatsapp == null  
-				|| foto == null  ;
+		return nombre.equals("") 
+				|| descripcion.equals("") 
+				|| whatsapp.equals("")  
+				|| foto.equals("");
 	}
 	
 	

@@ -33,32 +33,39 @@ public class ServicioService {
 		return servicioDAOImpl.recuperarPorId(id);
 	}
 
-	public HttpStatus guardar(Servicio serviceNuevo) {
+	public ResponseEntity guardar(Servicio serviceNuevo) {
 		Usuario user = usuarioService.recuperarPorId(serviceNuevo.getUsuario().getId());
 		TipoServicio ts = tipoServicioDAOImpl.recuperarPorId(serviceNuevo.getTipoServicio().getId());
-		if (user == null || ts == null) {
-			return HttpStatus.NOT_FOUND;		
+		if (user == null) {
+			return new ResponseEntity("El user con id "+serviceNuevo.getUsuario().getId()+" es inválido", HttpStatus.BAD_REQUEST);		
 		}
+		if (ts == null) {
+			return new ResponseEntity("El tipo de servicio con id "+serviceNuevo.getTipoServicio().getId()+" es inválido", HttpStatus.BAD_REQUEST);		
+		}
+		
 		
 		serviceNuevo.setTipoServicio(ts);
 		serviceNuevo.setUsuario(user);
 		servicioDAOImpl.guardar(serviceNuevo);		
-		return HttpStatus.OK;
+		return new ResponseEntity(HttpStatus.OK);
 	}
 
-	public HttpStatus editar(Servicio serviceMod, long id) {
+	public ResponseEntity editar(Servicio serviceMod, long id) {
 		System.out.println("Obteniendo Servicio con id " + id);
 		Servicio service = this.recuperarPorId(id);
 		if (service == null) {
 			System.out.println("Servicio con id "+ id + " no encontrado");
-			 return HttpStatus.NOT_FOUND;		
+			 return new ResponseEntity("El servicio con id "+id+" es inválido", HttpStatus.BAD_REQUEST);		
 		}
 		
 				
 		Usuario user = usuarioService.recuperarPorId(serviceMod.getUsuario().getId());
 		TipoServicio ts = tipoServicioDAOImpl.recuperarPorId(serviceMod.getTipoServicio().getId());
-		if (user == null || ts == null) {
-			return HttpStatus.NOT_FOUND;		
+		if (user == null) {
+			return new ResponseEntity("El user con id "+serviceMod.getUsuario().getId()+" es inválido", HttpStatus.BAD_REQUEST);		
+		}
+		if (ts == null) {
+			return new ResponseEntity("El tipo de servicio con id "+serviceMod.getTipoServicio().getId()+" es inválido", HttpStatus.BAD_REQUEST);		
 		}
 		
 		service.setNombre(serviceMod.getNombre());
@@ -73,7 +80,7 @@ public class ServicioService {
 		service.setUsuario(user);
 		
 		servicioDAOImpl.editar(service);
-		return HttpStatus.OK;
+		return new ResponseEntity(HttpStatus.OK);
 		
 	}
 	

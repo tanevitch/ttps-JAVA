@@ -41,7 +41,7 @@ public class ServicioRestController {
 	public ResponseEntity<List<Servicio>> servicios(){
 		List<Servicio> services = servicioService.listar();
 		if(services.isEmpty()) {
-			return new ResponseEntity<List<Servicio>>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity("No hay resultados", HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<List<Servicio>>(services, HttpStatus.OK);
 	}
@@ -53,7 +53,7 @@ public class ServicioRestController {
 		Servicio service = servicioService.recuperarPorId(id);
 		if (service == null) {
 			System.out.println("Servicio con id "+ id + " no encontrado");
-			return new ResponseEntity<Servicio>(HttpStatus.NOT_FOUND);		
+			return new ResponseEntity("Servicio con id "+ id + " no encontrado", HttpStatus.NOT_FOUND);		
 		}
 		return new ResponseEntity<Servicio>(service, HttpStatus.OK);
 	}
@@ -61,12 +61,12 @@ public class ServicioRestController {
 	@PostMapping("")
 	public ResponseEntity<Servicio> crear(@RequestBody Servicio serviceNuevo){
 		if (serviceNuevo.hasEmptyFields()){
-			 return new ResponseEntity(HttpStatus.BAD_REQUEST);
+			 return new ResponseEntity("Todos los campos son requeridos", HttpStatus.BAD_REQUEST);
 		 }
 		
-		HttpStatus codigoRta =	servicioService.guardar(serviceNuevo);
-		if (codigoRta != HttpStatus.OK) {
-			return new ResponseEntity<Servicio>(codigoRta);
+		ResponseEntity codigoRta =	servicioService.guardar(serviceNuevo);
+		if (codigoRta.getStatusCode() != HttpStatus.OK) {
+			return codigoRta;
 		}
 		return new ResponseEntity<Servicio>(serviceNuevo, HttpStatus.CREATED);
 	}
@@ -75,12 +75,12 @@ public class ServicioRestController {
 	public ResponseEntity<Servicio> modificar(@PathVariable("id") long id, @RequestBody Servicio serviceMod){
 		
 		if (serviceMod.hasEmptyFields()) {
-			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity("Todos los campos son requeridos", HttpStatus.BAD_REQUEST);
 		}
 		
-		HttpStatus codigoRta = servicioService.editar(serviceMod, id);
-		if (codigoRta != HttpStatus.OK) {
-			return new ResponseEntity<Servicio>(codigoRta);
+		ResponseEntity codigoRta = servicioService.editar(serviceMod, id);
+		if (codigoRta.getStatusCode() != HttpStatus.OK) {
+			return codigoRta;
 		}
 		
 		Servicio service = servicioService.recuperarPorId(id);

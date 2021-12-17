@@ -84,13 +84,6 @@ export class EditarServicioComponent implements OnInit {
           'success'
         )
         this.router.navigate(["servicios"]);
-      },
-      () => {
-        Swal.fire(
-          '¡Oops!',
-          'Ha ocurrido un error! Vuelve a intentarlo más tarde',
-          'error'
-        )
       });
   }
 }

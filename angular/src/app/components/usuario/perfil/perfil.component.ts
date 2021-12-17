@@ -25,14 +25,8 @@ export class PerfilComponent implements OnInit {
     )
   }
 
-  errorUpdate(){
-    Swal.fire(
-      'Ocurrió un error',
-      'Intente nuevamente',
-      'warning'
-    )
 
-  }
+  
   constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
@@ -50,9 +44,6 @@ export class PerfilComponent implements OnInit {
       res => {
         this.successUpdate();
         this.router.navigate(["dashboard"])
-      },
-      error => {
-        this.errorUpdate()
       }
     )
   }

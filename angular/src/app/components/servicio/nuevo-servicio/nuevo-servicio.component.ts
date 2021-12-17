@@ -69,13 +69,6 @@ export class NuevoServicioComponent implements OnInit {
           )
           this.router.navigate(["servicios"]);
 
-          },
-          () => {
-            Swal.fire(
-              '¡Oops!',
-              'Ha ocurrido un error! Vuelve a intentarlo más tarde',
-              'error'
-            )
           });
       }
     })

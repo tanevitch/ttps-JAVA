@@ -52,12 +52,12 @@ public class AuthRestController {
 	@PostMapping("/registrarse")
 	public ResponseEntity<Usuario> registrarse(@RequestBody Usuario userNuevo){
 		 if (userNuevo.hasEmptyFields()) {
-			 return new ResponseEntity(HttpStatus.BAD_REQUEST);
+			 return new ResponseEntity("Todos los campos son requeridos", HttpStatus.BAD_REQUEST);
 		 }
 		 
-		 HttpStatus codigoRta = usuarioService.crear(userNuevo);
-		 if (codigoRta != HttpStatus.OK) {
-			 return new ResponseEntity(codigoRta);
+		 ResponseEntity codigoRta = usuarioService.crear(userNuevo);
+		 if (codigoRta.getStatusCode() != HttpStatus.OK) {
+			 return codigoRta;
 		 }
 		 return new ResponseEntity<Usuario>(userNuevo, HttpStatus.CREATED);
 	}

@@ -20,14 +20,6 @@ export class AuthService {
     })
   }
 
-  errorLogin(error: any){
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: error,
-    })
-  }
-
   constructor(private http: HttpClient, private router: Router) { }
   public login(data: string){
     let url = environment.apiJava + this.endpoint;
@@ -38,16 +30,7 @@ export class AuthService {
         window.localStorage.setItem("id_usuario", data.user_id);
         window.localStorage.setItem("token", data.token);
         this.router.navigate(["dashboard"])
-      },
-      error => {
-        if (error.status == "400" || error.status == "401"){
-          this.errorLogin(error.error);
-        }
-        else{
-          this.simpleAlert()
-        }
-      }
-      );
+      });
 
   }
 

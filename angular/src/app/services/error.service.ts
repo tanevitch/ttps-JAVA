@@ -3,7 +3,9 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { AuthService } from "./auth.service";
+import { AuthService } from './auth.service';
+import Swal from 'sweetalert2';
+
 
 @Injectable()
 export class ErrorService implements HttpInterceptor {
@@ -11,12 +13,16 @@ export class ErrorService implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
-          console.log("El estado es" + err.status)
-            if (err.status === 403 || err.status==0) { // ver cóm oarreglar el 0 porque por el filtro, hace return en el medio y devuelve 0
+            if (err.status === 403 || err.status == 0) {
+                err.error= "Token inválido"
                 this.authenticationService.logout();
                 location.reload();
             }
-
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: err.error,
+            })
             const error = err.error.message || err.statusText;
             return throwError(error);
         }))
