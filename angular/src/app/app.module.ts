@@ -17,6 +17,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TodosServiciosComponent } from './components/servicio/todos-servicios/todos-servicios.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { TokenizerService } from './services/tokenizer.service';
+import { ErrorService } from './services/error.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,10 @@ import { TokenizerService } from './services/tokenizer.service';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [{provide:HTTP_INTERCEPTORS, useClass: TokenizerService, multi:true}],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass: TokenizerService, multi:true},
+    {provide:HTTP_INTERCEPTORS, useClass: ErrorService, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
