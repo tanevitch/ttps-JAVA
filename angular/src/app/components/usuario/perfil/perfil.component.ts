@@ -46,7 +46,7 @@ export class PerfilComponent implements OnInit {
   }
 
   onSubmit(data: string) {
-    this.usuarioService.editarDatos(data).subscribe(
+    this.usuarioService.editarDatos(this.usuarioData).subscribe(
       res => {
         this.successUpdate();
         this.router.navigate(["dashboard"])

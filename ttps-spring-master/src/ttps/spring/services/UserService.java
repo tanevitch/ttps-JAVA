@@ -44,17 +44,11 @@ public class UserService {
 		
 		Usuario user = usuarioDAOImpl.recuperarPorId(id);
 		if (user == null) {
-			 return HttpStatus.NO_CONTENT;		
+			 return HttpStatus.BAD_REQUEST;		
 		}
 		 
-		Usuario userExiste = usuarioDAOImpl.buscarUsuarioPorMail(userMod.getMail());
-		 if (userExiste != null && userExiste.getId() != user.getId()) {
-			 System.out.println("Ya existe un usuario con mail " + userMod.getMail());
-			 return HttpStatus.BAD_REQUEST;		
-		 }
 		user.setNombre(userMod.getNombre());
 		user.setApellido(userMod.getApellido());
-		user.setMail(userMod.getMail());
 		user.setContrasena(userMod.getContrasena());
 		usuarioDAOImpl.editar(user);
 		return HttpStatus.OK;

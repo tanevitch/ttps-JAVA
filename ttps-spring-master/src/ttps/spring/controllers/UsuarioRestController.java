@@ -58,13 +58,14 @@ public class UsuarioRestController {
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<Usuario> updateUser(@PathVariable("id") long id, @RequestBody Usuario userMod){
-		 if (userMod.hasEmptyFields()) {
-			 return new ResponseEntity(HttpStatus.BAD_REQUEST);
-		 }
-		 if(userMod.getContrasena().equals("")) {
+		if(userMod.getContrasena().equals("")) {
 			 Usuario userOriginal = usuarioService.recuperarPorId(id);
 			 userMod.setContrasena(userOriginal.getContrasena());
 		 }
+		 if (userMod.hasEmptyFields()) {
+			 return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		 }
+
 		 HttpStatus codigoRta = usuarioService.editar(userMod, id);
 		 if (codigoRta != HttpStatus.OK) {
 			 return new ResponseEntity(codigoRta); 

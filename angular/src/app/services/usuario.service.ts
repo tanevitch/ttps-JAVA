@@ -22,7 +22,7 @@ export class UsuarioService {
     return this.http.get<Usuario>(url);
   }
 
-  public editarDatos(data: string): Observable<Usuario>{
+  public editarDatos(data: any): Observable<Usuario>{
     let url = environment.apiJava + this.endpoint + "/" + this.authService.obtenerIdUsuario();
     return this.http.put<Usuario>(url, data);
   }

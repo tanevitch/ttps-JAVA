@@ -131,10 +131,10 @@ public class Usuario  {
 	}
 
 	public boolean hasEmptyFields() {
-		return nombre == null
-				|| apellido == null 
-				|| mail == null 
-				|| contrasena == null;
+		return nombre.equals("")
+			    || apellido.equals("") 
+				|| mail.equals("") 
+				|| contrasena.equals("");
 	}
 	
 }
