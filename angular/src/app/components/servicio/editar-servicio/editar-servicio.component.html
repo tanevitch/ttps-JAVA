@@ -11,7 +11,7 @@
                                   </div>
                                   <div class="form-group col-sm-6 flex-column d-flex"> 
                                     <label class="form-control-label px-3">Tipo de servicio<span class="text-danger"> *</span></label> 
-                                    <select formControlName="tipoServicio" required class="form-select" aria-label="Default select example">
+                                    <select formControlName="tipoServicio" required class="form-select" [(ngModel)]="tipoActual.id" aria-label="Default select example">
                                     <option *ngFor="let tipo of tiposervicios" [ngValue]="tipo.id" id="{{tipo.id}}">{{tipo.nombre}}</option>
                                   </select>
                                 </div>
