@@ -1,6 +1,6 @@
 <section>
         <div class="container-fluid px-2 mx-auto">
-            <div id="nuevoServicio" class="row d-flex justify-content-center">
+            <div class="fondoFlores row d-flex justify-content-center">
                 <div  class="col-xl-7 col-lg-8 col-md-9 col-11 text-center shadow-lg p-5 my-5 bg-white rounded">
                     <h3 class="nuevoServ">Editar servicio</h3>
                         <form class="form-card " novalidate (ngSubmit)="onSubmit()" [formGroup]="servicio">
@@ -23,7 +23,7 @@
                               </div>
                               <label for="imagenes" class="form-control-label px-3 mb-2">Imagen</label>
                               <div class="d-flex">
-                                <img class="card-img-top" src={{foto}} alt="Card image cap" style="height: 40%; width: auto;">
+                                <img class="card-img-top" src={{foto}} alt="Card image cap" style="height: 40%; width: 40%;">
                                 <input type="file"  accept=".png, .jpg, .jpeg" (change)="onUploadChange($event)" class="custom-file-input me-2 " id="imagenes" >
                          
                               </div>

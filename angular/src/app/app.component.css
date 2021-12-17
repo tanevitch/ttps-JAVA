@@ -282,6 +282,6 @@ direction: rtl;
 float:none
 }
 
-#nuevoServicio{
-  background-image: linear-gradient( rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.226) 100%), url("../assets/img/nuevoServicio.jpg")
+.fondoFlores{
+  background-image: linear-gradient( rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.226) 100%), url("../assets/img/fondoFlores.jpg")
 }
