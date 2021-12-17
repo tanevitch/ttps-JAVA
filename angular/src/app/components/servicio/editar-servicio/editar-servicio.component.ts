@@ -58,9 +58,7 @@ export class EditarServicioComponent implements OnInit {
     })
   }
 
-  ngDoCheck(){
 
-  }
 
   constructor(private authService: AuthService, private tipoServicioService: TipoServicioService, private servicioService: ServicioService, private router: Router) { }
 
@@ -75,7 +73,7 @@ export class EditarServicioComponent implements OnInit {
       id: this.authService.obtenerIdUsuario()
     }
     datos["tipoServicio"]={
-      id: datos["tipoServicio"].id
+      id: datos["tipoServicio"]
     }
     datos["foto"]= this.foto
     this.servicioService.editarServicio(datos).subscribe(
